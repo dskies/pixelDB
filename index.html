@@ -670,7 +670,8 @@ function goTop() { window.scrollTo({ top: 0, behavior: 'instant' }); }
         }
         // advance age for alive cells, reset for dead
         if (next[i]) {
-          age[i] = alive ? Math.min(age[i] + 1, 255) : 0;
+          age[i] = alive ? Math.min(age[i] + 1, 255)
+                         : Math.floor(Math.random() * PALETTE.length) * 12;
         } else {
           age[i] = 0;
         }
