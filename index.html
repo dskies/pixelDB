@@ -865,8 +865,9 @@ async function scoreFetchOne({ title, mcCell }) {
     const wd = await wr.json();
     const wikitext = wd.parse?.wikitext?.['*'] || '';
 
-    // 3. Parse MC score from infobox: | MC = 85/100  or  | MC = 85
-    const m = wikitext.match(/\|\s*MC\s*=\s*(\d+)/);
+    // 3. Parse MC score from infobox: | MC = 85  |  (PC) 79/100  |  {{score|85|100}}  etc.
+    // Skip any non-digit prefix after the = (platform labels, spaces, parens...)
+    const m = wikitext.match(/\|\s*MC\s*=\s*[^\d\n|]*(\d{1,3})/);
     if (m) {
       const v = parseInt(m[1], 10);
       if (v >= 1 && v <= 100) entry.mc = v;
