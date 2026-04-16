@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pixel Art Adventures DB</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Share+Tech+Mono&display=swap');
+
+  :root {
+    --bg:          #0a0c10;
+    --panel:       #0f1318;
+    --border:      #1e2a1e;
+    --accent:      #00ff88;
+    --accent2:     #ff6b35;
+    --dim:         #2a3a2a;
+    --text:        #c8d8c8;
+    --muted:       #556655;
+    --neon-glow:   0 0 8px #00ff8844, 0 0 20px #00ff8822;
+    --orange-glow: 0 0 8px #ff6b3544, 0 0 20px #ff6b3522;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Share Tech Mono', monospace;
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  body::before {
+    content: '';
+    position: fixed; top:0; left:0; width:100%; height:100%;
+    background: repeating-linear-gradient(
+      0deg, transparent, transparent 2px,
+      rgba(0,255,136,0.015) 2px, rgba(0,255,136,0.015) 4px
+    );
+    pointer-events: none; z-index: 9999;
+  }
+
+  header {
+    padding: 1.5rem 2rem 1rem;
+    border-bottom: 2px solid var(--accent);
+    box-shadow: var(--neon-glow);
+    background: linear-gradient(180deg, #0a1a0f 0%, var(--bg) 100%);
+  }
+  .title-row { display:flex; align-items:center; gap:1.5rem; flex-wrap:wrap; }
+  .count-badge {
+    font-family: 'Press Start 2P', monospace;
+    font-size: 2.2rem; color: var(--accent2);
+    text-shadow: var(--orange-glow); line-height:1; min-width:4ch;
+  }
+  h1 {
+    font-family: 'Press Start 2P', monospace;
+    font-size: clamp(0.9rem,2vw,1.4rem);
+    color: var(--accent); text-shadow: var(--neon-glow);
+    letter-spacing: 0.05em; line-height: 1.8;
+  }
+
+  /* ── STICKY FILTERS ── */
+  .filters {
+    padding: 0.75rem 2rem;
+    display: flex; gap: 0.5rem; flex-wrap: wrap; align-items: center;
+    border-bottom: 1px solid var(--border);
+    background: var(--panel);
+    position: sticky; top: 0; z-index: 100;
+    box-shadow: 0 4px 20px #0a0c1099;
+  }
+  .filter-label {
+    font-size: 0.6rem; color: var(--muted);
+    text-transform: uppercase; letter-spacing: 0.1em; margin-right: 0.2rem;
+  }
+  button.fb {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 0.63rem; padding: 0.28rem 0.65rem;
+    background: transparent; border: 1px solid var(--dim);
+    color: var(--muted); cursor: pointer;
+    text-transform: uppercase; letter-spacing: 0.1em;
+    transition: all 0.12s; white-space: nowrap;
+  }
+  button.fb:hover  { border-color:var(--accent); color:var(--accent); box-shadow:var(--neon-glow); }
+  button.fb.active { background:rgba(0,255,136,0.07); border-color:var(--accent); color:var(--accent); box-shadow:var(--neon-glow); }
+  button.fb[data-f="star"].active      { border-color:#ff6b35; color:#ff6b35; background:rgba(255,107,53,0.08); }
+  button.fb[data-f="cyberpunk"].active { border-color:#00cfff; color:#00cfff; background:rgba(0,207,255,0.07); }
+  button.fb[data-f="noir"].active      { border-color:#ff6b35; color:#ff6b35; background:rgba(255,107,53,0.07); }
+  button.fb[data-f="cozy"].active      { border-color:#ffdd77; color:#ffdd77; background:rgba(255,221,119,0.07); }
+  button.fb[data-f="horror"].active    { border-color:#cc3333; color:#cc3333; background:rgba(204,51,51,0.07); }
+  button.fb[data-f="scifi"].active     { border-color:#bb99ff; color:#bb99ff; background:rgba(123,94,167,0.07); }
+  button.fb[data-f="mystery"].active   { border-color:#77ddaa; color:#77ddaa; background:rgba(119,221,170,0.07); }
+  button.fb[data-f="rpg"].active       { border-color:#ffaa55; color:#ffaa55; background:rgba(255,170,85,0.07); }
+  button.fb[data-f="classic"].active   { border-color:#aaaaff; color:#aaaaff; background:rgba(170,170,255,0.07); }
+
+  /* Language toggle */
+  button#langBtn {
+    font-family: 'Press Start 2P', monospace;
+    font-size: 0.45rem; padding: 0.35rem 0.75rem;
+    background: rgba(0,255,136,0.08);
+    border: 1px solid var(--accent);
+    color: var(--accent); cursor: pointer;
+    letter-spacing: 0.12em;
+    box-shadow: var(--neon-glow);
+    transition: all 0.12s;
+    white-space: nowrap;
+    margin-left: 0.5rem;
+  }
+  button#langBtn:hover { background: rgba(0,255,136,0.18); }
+
+  .search-wrap { margin-left: auto; }
+  #search {
+    font-family: 'Share Tech Mono', monospace; font-size: 0.7rem;
+    background: var(--bg); border: 1px solid var(--dim);
+    color: var(--text); padding: 0.35rem 0.75rem;
+    width: 200px; outline: none; letter-spacing: 0.05em;
+    transition: border-color 0.15s;
+  }
+  #search:focus { border-color: var(--accent); box-shadow: var(--neon-glow); }
+  #search::placeholder { color: var(--muted); }
+
+  .rc {
+    font-family:'Press Start 2P',monospace; font-size:0.43rem;
+    color:var(--muted); padding:0.4rem 2rem 0;
+  }
+
+  /* ── TABLE ── */
+  .table-wrap { overflow-x: auto; padding: 0 1rem 5rem; }
+  table { width:100%; border-collapse:collapse; font-size:0.72rem; margin-top:0.5rem; }
+
+  thead tr { border-bottom: 2px solid var(--accent); }
+  html { scroll-padding-top: var(--sticky-total, 110px); }
+
+  thead th {
+    font-family:'Press Start 2P',monospace; font-size:0.43rem;
+    color:var(--accent); text-transform:uppercase; letter-spacing:0.15em;
+    padding:0.7rem 0.7rem; text-align:left;
+    cursor:pointer; white-space:nowrap; user-select:none;
+    background:var(--bg);
+  }
+  thead th:hover { color:#aaffcc; }
+  .si { margin-left:3px; opacity:0.35; font-size:0.7rem; }
+  thead th.sorted .si { opacity:1; }
+
+  tbody tr { border-bottom: 1px solid var(--border); transition: background 0.1s; }
+  tbody tr:hover { background: rgba(0,255,136,0.04); }
+
+  td { padding:0.52rem 0.7rem; vertical-align:middle; }
+  td.num { color:var(--muted); font-size:0.58rem; width:42px; text-align:right; padding-right:0.9rem; }
+  td.yr  { font-family:'Press Start 2P',monospace; font-size:0.48rem; color:var(--accent2); width:72px; white-space:nowrap; }
+  td.ttl { color:#e8f8e8; font-size:0.74rem; min-width:200px; }
+  td.gnr { min-width:105px; }
+  td.tgs { min-width:165px; }
+  td.nte { color:var(--muted); font-size:0.64rem; min-width:190px; max-width:340px; line-height:1.5; }
+
+  .gb { display:inline-block; font-size:0.5rem; padding:0.16rem 0.4rem; border:1px solid; text-transform:uppercase; letter-spacing:0.04em; white-space:nowrap; }
+  .gb-PC        { border-color:#3a5a3a; color:var(--accent); }
+  .gb-Adventure { border-color:#3a4a2a; color:#77ffaa; }
+  .gb-Narrativo,.gb-Narrative { border-color:#2a3a4a; color:#88ccff; }
+  .gb-RPG       { border-color:#4a3a2a; color:#ffaa55; }
+  .gb-Action    { border-color:#4a2a2a; color:#ff8888; }
+  .gb-Puzzle    { border-color:#3a2a4a; color:#bb99ff; }
+  .gb-Sim       { border-color:#3a4a2a; color:#aadd77; }
+
+  .tag {
+    display:inline-block; font-size:0.48rem;
+    padding:0.1rem 0.3rem; margin:0.08rem 0.06rem 0.08rem 0;
+    text-transform:uppercase; letter-spacing:0.04em;
+    border-left:2px solid; background:transparent;
+    cursor:pointer; transition:background 0.1s, color 0.12s;
+  }
+  .tag:hover { background:rgba(255,255,255,0.09); }
+  .tag-cyberpunk{border-color:#00cfff;color:#00cfff55;}.tag-cyberpunk:hover{color:#00cfff;}
+  .tag-noir     {border-color:#ff6b35;color:#ff6b3555;}.tag-noir:hover{color:#ff6b35;}
+  .tag-cozy     {border-color:#ffdd77;color:#ffdd7755;}.tag-cozy:hover{color:#ffdd77;}
+  .tag-horror   {border-color:#cc3333;color:#cc333355;}.tag-horror:hover{color:#cc3333;}
+  .tag-scifi    {border-color:#bb99ff;color:#bb99ff55;}.tag-scifi:hover{color:#bb99ff;}
+  .tag-mystery  {border-color:#77ddaa;color:#77ddaa55;}.tag-mystery:hover{color:#77ddaa;}
+  .tag-rpg      {border-color:#ffaa55;color:#ffaa5555;}.tag-rpg:hover{color:#ffaa55;}
+  .tag-classic  {border-color:#aaaaff;color:#aaaaff55;}.tag-classic:hover{color:#aaaaff;}
+
+  .star { color:var(--accent2); margin-right:2px; }
+
+  #nores {
+    display:none; text-align:center; padding:3rem;
+    font-family:'Press Start 2P',monospace; font-size:0.6rem; color:var(--muted);
+  }
+  #loading {
+    text-align:center; padding:4rem;
+    font-family:'Press Start 2P',monospace; font-size:0.7rem;
+    color:var(--accent); animation:blink 1s step-end infinite;
+  }
+  @keyframes blink{0%,100%{opacity:1;}50%{opacity:0;}}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="title-row">
+    <div class="count-badge" id="badge">···</div>
+    <h1>PIXEL ART<br>ADVENTURES DB</h1>
+  </div>
+</header>
+
+<!-- small audio start button (shown if autoplay blocked, visible on mobile) -->
+<button id="audioToggle" style="display:none; position:fixed; right:1rem; bottom:1rem; z-index:200; background:var(--accent); color:#07110a; border:none; padding:0.6rem 0.8rem; border-radius:8px; box-shadow:var(--neon-glow); font-family:Share Tech Mono, monospace;">Play audio</button>
+
+<div class="filters">
+  <span class="filter-label" id="lbl-filter">Filtro:</span>
+  <button class="fb active" data-f="all" id="fb-all">Tutti</button>
+  <button class="fb" data-f="star">&#9733; Must Play</button>
+  <button class="fb" data-f="cyberpunk">&#9889; Cyberpunk</button>
+  <button class="fb" data-f="noir">Noir</button>
+  <button class="fb" data-f="mystery">Mystery</button>
+  <button class="fb" data-f="scifi">Sci-Fi</button>
+  <button class="fb" data-f="cozy">Cozy</button>
+  <button class="fb" data-f="horror">Horror</button>
+  <button class="fb" data-f="rpg">RPG</button>
+  <button class="fb" data-f="classic">Classic</button>
+  <button id="langBtn">&#127463;&#127479; EN</button>
+  <div class="search-wrap">
+    <input type="text" id="search" placeholder="CERCA TITOLO...">
+  </div>
+</div>
+
+<div class="rc" id="rc"></div>
+
+<div class="table-wrap">
+  <div id="loading">LOADING CSV...</div>
+  <div id="nores">&gt; NESSUN RISULTATO _</div>
+  <table id="tbl" style="display:none">
+    <thead>
+      <tr>
+        <th data-col="num" class="sorted">#<span class="si">&#8595;</span></th>
+        <th data-col="year" id="th-year">Anno<span class="si">&#8597;</span></th>
+        <th data-col="title" id="th-title">Titolo<span class="si">&#8597;</span></th>
+        <th id="th-type">Tipo</th>
+        <th>Tag</th>
+        <th id="th-notes">Note</th>
+      </tr>
+    </thead>
+    <tbody id="tbody"></tbody>
+  </table>
+</div>
+
+<script>
+// ── LANGUAGE ──────────────────────────────────────────────────────────────────
+const I18N = {
+  it: {
+    csv:         'games.csv',
+    filterLabel: 'Filtro:',
+    allBtn:      'Tutti',
+    searchPh:    'CERCA TITOLO...',
+    thYear:      'Anno',
+    thTitle:     'Titolo',
+    thType:      'Tipo',
+    thNotes:     'Note',
+    rc:          (n, tot) => `> ${n} titoli visualizzati su ${tot} totali`,
+    noResults:   '> NESSUN RISULTATO _',
+    loading:     'CARICAMENTO CSV...',
+    langBtn:     '&#127463;&#127479; EN',
+    loadErr:     '> ERRORE: games.csv non trovato. Mettilo nella stessa cartella.',
+  },
+  en: {
+    csv:         'games_eng.csv',
+    filterLabel: 'Filter:',
+    allBtn:      'All',
+    searchPh:    'SEARCH TITLE...',
+    thYear:      'Year',
+    thTitle:     'Title',
+    thType:      'Type',
+    thNotes:     'Notes',
+    rc:          (n, tot) => `> ${n} titles shown of ${tot} total`,
+    noResults:   '> NO RESULTS _',
+    loading:     'LOADING CSV...',
+    langBtn:     '&#127470;&#127481; IT',
+    loadErr:     '> ERROR: games_eng.csv not found. Place it in the same folder.',
+  }
+};
+
+let lang = 'it';
+let allGames = [];
+let activeFilter = 'all';
+let query = '';
+let sortCol = 'num';
+let sortDir = 1;
+
+const tagLabel = {
+  cyberpunk:'CYB', noir:'NOIR', mystery:'MYS',
+  scifi:'SCI', cozy:'COZY', horror:'HOR', rpg:'RPG', classic:'CLS'
+};
+
+// ── CSV PARSER ────────────────────────────────────────────────────────────────
+function parseCSV(text) {
+  // Normalize line endings (handles \r\n and \r)
+  const lines = text.replace(/\r\n/g, '\n').replace(/\r/g, '\n').trim().split('\n');
+  const headers = lines[0].split(',').map(h => h.trim());
+  const rows = [];
+  for (let i = 1; i < lines.length; i++) {
+    const line = lines[i].trim();
+    if (!line) continue;
+    const fields = [];
+    let cur = '', inQ = false;
+    for (let c = 0; c < line.length; c++) {
+      const ch = line[c];
+      if      (ch === '"' && !inQ) { inQ = true; }
+      else if (ch === '"' &&  inQ) { inQ = false; }
+      else if (ch === ',' && !inQ) { fields.push(cur); cur = ''; }
+      else                         { cur += ch; }
+    }
+    fields.push(cur);
+    const obj = {};
+    headers.forEach((h, idx) => obj[h] = (fields[idx] || '').trim());
+    // only add if title is non-empty (guards against ghost rows)
+    if (obj.title) rows.push(obj);
+  }
+  return rows;
+}
+
+function esc(s) {
+  return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+}
+
+// ── APPLY I18N ────────────────────────────────────────────────────────────────
+function applyLang() {
+  const t = I18N[lang];
+  document.getElementById('lbl-filter').textContent    = t.filterLabel;
+  document.getElementById('fb-all').textContent        = t.allBtn;
+  document.getElementById('search').placeholder        = t.searchPh;
+  document.getElementById('th-year').innerHTML         = t.thYear  + '<span class="si">&#8597;</span>';
+  document.getElementById('th-title').innerHTML        = t.thTitle + '<span class="si">&#8597;</span>';
+  document.getElementById('th-type').textContent       = t.thType;
+  document.getElementById('th-notes').textContent      = t.thNotes;
+  document.getElementById('langBtn').innerHTML         = t.langBtn;
+  document.getElementById('nores').textContent         = t.noResults;
+  document.getElementById('loading').textContent       = t.loading;
+  // restore sorted indicator
+  const sortedTh = document.querySelector(`thead th[data-col="${sortCol}"]`);
+  if (sortedTh) {
+    sortedTh.classList.add('sorted');
+    const si = sortedTh.querySelector('.si');
+    if (si) si.innerHTML = sortDir === 1 ? '&#8595;' : '&#8593;';
+  }
+}
+
+// ── RENDER ────────────────────────────────────────────────────────────────────
+function render() {
+  const q = query.toLowerCase();
+
+  const filtered = allGames.filter(g => {
+    const tags = g.tags ? g.tags.split(',').map(t => t.trim()) : [];
+    if (activeFilter === 'star')  return g.star === 'true';
+    if (activeFilter !== 'all')   return tags.includes(activeFilter);
+    return true;
+  }).filter(g => {
+    if (!q) return true;
+    return g.title.toLowerCase().includes(q)   ||
+           (g.note  || '').toLowerCase().includes(q) ||
+           (g.tags  || '').toLowerCase().includes(q) ||
+           (g.genre || '').toLowerCase().includes(q) ||
+           String(g.year).includes(q);
+  });
+
+  const sorted = [...filtered].sort((a, b) => {
+    if (sortCol === 'year')  return sortDir * (Number(b.year)  - Number(a.year));
+    if (sortCol === 'title') return sortDir *  a.title.localeCompare(b.title);
+    return sortDir * (Number(a.num) - Number(b.num));
+  });
+
+  const tbody  = document.getElementById('tbody');
+  const nores  = document.getElementById('nores');
+  const tbl    = document.getElementById('tbl');
+  const rc     = document.getElementById('rc');
+  const badge  = document.getElementById('badge');
+
+  if (sorted.length === 0) {
+    badge.textContent    = '0';
+    tbl.style.display    = 'none';
+    nores.style.display  = 'block';
+    rc.textContent       = I18N[lang].rc(0, allGames.length);
+    return;
+  }
+
+  nores.style.display  = 'none';
+  tbl.style.display    = 'table';
+
+  tbody.innerHTML = sorted.map(g => {
+    const tags   = g.tags ? g.tags.split(',').map(t => t.trim()) : [];
+    const isStar = g.star === 'true';
+    const gcls   = 'gb-' + esc(g.genre || 'Adventure').replace(/[^a-zA-Z]/g, '');
+    const tagsH  = tags.map(t =>
+      `<span class="tag tag-${t}" data-tag="${t}">${tagLabel[t] || t}</span>`
+    ).join('');
+    return `<tr>
+      <td class="num">${g.num}</td>
+      <td class="yr">${g.year}</td>
+      <td class="ttl">${isStar ? '<span class="star">&#9733;</span>' : ''}${esc(g.title)}</td>
+      <td class="gnr"><span class="gb ${gcls}">${esc(g.genre)}</span></td>
+      <td class="tgs">${tagsH}</td>
+      <td class="nte">${esc(g.note || '')}</td>
+    </tr>`;
+  }).join('');
+
+  // Count AFTER rendering — guarantees badge = actual rows
+  const rowCount = tbody.rows.length;
+  badge.textContent = rowCount;
+  rc.textContent    = I18N[lang].rc(rowCount, allGames.length);
+
+  tbody.querySelectorAll('.tag[data-tag]').forEach(el => {
+    el.addEventListener('click', e => { e.stopPropagation(); setFilter(el.dataset.tag); });
+  });
+}
+
+// ── FILTER ────────────────────────────────────────────────────────────────────
+function setFilter(f) {
+  activeFilter = f;
+  document.querySelectorAll('.fb').forEach(b => b.classList.toggle('active', b.dataset.f === f));
+  render();
+  goTop();
+}
+document.querySelectorAll('.fb').forEach(b => b.addEventListener('click', () => setFilter(b.dataset.f)));
+
+// ── SEARCH ────────────────────────────────────────────────────────────────────
+document.getElementById('search').addEventListener('input', e => {
+  query = e.target.value.trim();
+  render();
+});
+
+// ── SORT ──────────────────────────────────────────────────────────────────────
+document.querySelectorAll('thead th[data-col]').forEach(th => {
+  th.addEventListener('click', () => {
+    const col = th.dataset.col;
+    if (sortCol === col) sortDir *= -1; else { sortCol = col; sortDir = 1; }
+    document.querySelectorAll('thead th').forEach(h => {
+      h.classList.remove('sorted');
+      const si = h.querySelector('.si');
+      if (si) si.innerHTML = '&#8597;';
+    });
+    th.classList.add('sorted');
+    const si = th.querySelector('.si');
+    if (si) si.innerHTML = sortDir === 1 ? '&#8595;' : '&#8593;';
+    render();
+    goTop();
+  });
+});
+
+// ── LANGUAGE TOGGLE ───────────────────────────────────────────────────────────
+document.getElementById('langBtn').addEventListener('click', () => {
+  lang = lang === 'it' ? 'en' : 'it';
+  activeFilter = 'all';
+  document.querySelectorAll('.fb').forEach(b => b.classList.toggle('active', b.dataset.f === 'all'));
+  query = '';
+  document.getElementById('search').value = '';
+  applyLang();
+  loadCSV();
+});
+
+// ── LOAD CSV ──────────────────────────────────────────────────────────────────
+function loadCSV() {
+  const t = I18N[lang];
+  const loading = document.getElementById('loading');
+  const tbl     = document.getElementById('tbl');
+  loading.textContent  = t.loading;
+  loading.style.display = 'block';
+  tbl.style.display     = 'none';
+
+  fetch(t.csv)
+    .then(r => { if (!r.ok) throw new Error('not found'); return r.text(); })
+    .then(text => {
+      allGames = parseCSV(text);
+      loading.style.display = 'none';
+      render();
+    })
+    .catch(() => {
+      loading.textContent = t.loadErr;
+    });
+}
+
+// ── STICKY HEIGHT ─────────────────────────────────────────────────────────────
+function updateStickyOffsets() {
+  const bar = document.querySelector('.filters');
+  const h = bar ? bar.offsetHeight : 48;
+  document.documentElement.style.setProperty('--filter-h', h + 'px');
+}
+
+// ── SCROLL TO TOP ─────────────────────────────────────────────────────────────
+// After every sort/filter go to page top so no row is hidden under sticky bars
+function goTop() { window.scrollTo({ top: 0, behavior: 'instant' }); }
+
+// ── AUDIO ─────────────────────────────────────────────────────────────────────
+  (function() {
+    const audio = document.createElement('audio');
+    audio.src    = 'z.mp3';
+    audio.loop   = true;
+    audio.volume = 0.45;
+    // allow inline playback on mobile Safari / iOS
+    audio.playsInline = true;
+    audio.setAttribute('playsinline', '');
+    audio.setAttribute('webkit-playsinline', '');
+
+    const audioBtn = document.getElementById('audioToggle');
+
+    const tryPlay = () => audio.play().then(() => {
+      // hide fallback button if playing
+      if (audioBtn) audioBtn.style.display = 'none';
+    }).catch((err) => {
+      // autoplay blocked: show a visible button so user can start audio manually
+      if (audioBtn) {
+        audioBtn.style.display = 'block';
+        audioBtn.addEventListener('click', async function onClick() {
+          try {
+            await audio.play();
+          } catch(e) {
+            // if still failing, try unmuting after gesture
+            audio.muted = false;
+            await audio.play().catch(()=>{});
+          }
+          audioBtn.style.display = 'none';
+        }, { once: true });
+      }
+    });
+
+    // Try autoplay immediately
+    tryPlay();
+
+    // If autoplay initially blocked, ensure first touch/click will attempt to play
+    const onFirstGesture = () => { tryPlay(); ['click','keydown','touchstart'].forEach(ev => document.removeEventListener(ev, onFirstGesture)); };
+    ['click','keydown','touchstart'].forEach(ev => document.addEventListener(ev, onFirstGesture, { once: true }));
+  })();
+
+// ── INIT ──────────────────────────────────────────────────────────────────────
+updateStickyOffsets();
+window.addEventListener('resize', updateStickyOffsets);
+applyLang();
+loadCSV();
+</script>
+</body>
+</html>

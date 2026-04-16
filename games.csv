@@ -1,0 +1,300 @@
+num,year,title,genre,tags,star,note
+1,2026,Mewgenics,Action,"horror,rpg",false,Dal creatore di Binding of Isaac. Roguelite legacy con gatti. Alleva e manda i tuoi felini in avventure caotiche e oscure.
+2,2026,REPLACED,Action,"cyberpunk,noir",false,Sad Cat Studios. Platformer d'azione 2.5D cyberpunk retro. Una AI in corpo umano nella distopica Phoenix-City anni 80. Pixel art stratificata e cinematografica magistrale.
+3,2025,Arranger: A Role-Puzzler Adventure,Puzzle,"mystery,cozy",false,Puzzle narrativo in cui il mondo intero si muove a griglia con la protagonista.
+4,2025,Blade Chimera,Action,"cyberpunk,scifi",false,Team Ladybug. Metroidvania pixel cyberpunk. Cacciatore di demoni senza memoria in citta futuristica. Pixel art sontuosa.
+5,2025,Blue Prince,Puzzle,mystery,false,Mansion mystery ogni run riorganizza le stanze. Capolavoro 2025.
+6,2025,Broken Sword: Reforged,P&C,"mystery,classic",false,Remaster ufficiale 1996 con pixel art aggiornata. Mistero templari.
+7,2025,Citizen Sleeper 2: Starward Vector,Narrativo,"scifi,rpg",false,Sequel cult sci-fi. Narrativa ramificata su astronave dado come meccanica.
+8,2025,Despelote,Narrativo,cozy,false,Calcio come racconto di vita. Quito 2001 attraverso gli occhi di un bambino. Pixel narrativo che cattura l'essenza di un'epoca.
+9,2025,Hades II,Action,"rpg,mystery",false,Sequel di Hades di Supergiant. Roguelite mitologico con Melinoe. Narrativa piu ricca e combat profondissimo. Universalmente acclamato.
+10,2025,Hollow Knight: Silksong,Action,"mystery,horror",false,Sequel atteso 7 anni di Team Cherry. Metroidvania epico con Hornet nel regno di Pharloom. Monumentale e brutale.
+11,2025,Nine Sols,Action,"scifi,cyberpunk",false,Action pixel taoista-cyberpunk. Lore profonda mondo sinico post-umano.
+12,2025,Old Skies,Adventure,"scifi,mystery",false,Wadjet Eye. Agenzia viaggi nel tempo pixel cyberpunk con anima noir.
+13,2025,Skald: Against the Black Priory,RPG,"rpg,horror,classic",false,RPG in stile Ultima IV su sistemi 8-bit. Pixel art retro oscura e dettagliata.
+14,2025,The Drifter,P&C,"noir,mystery",false,Noir thriller pixel. PI in un noir pulp anni 50 omicidio su treno. Capolavoro recente.
+15,2025,The Seance of Blake Manor,Adventure,"horror,mystery",false,Detective soprannaturale nell'Irlanda del 1897. Hotel isolato pieno di segreti e presenze spettrali. Atmosfera gotica intensa.
+16,2025,Wanderstop,Sim,"cozy,mystery",false,Ivy Road / Davey Wreden. Negozio di te in foresta magica. Narrativa sull'esaurimento e il cambiamento. Delicato e sovversivo.
+17,2024,1000xRESIST,Narrativo,"scifi,mystery",false,Sci-fi su colonialismo e memoria. Pixel espressivo molto premiato.
+18,2024,Abiotic Factor,Adventure,"scifi,horror",false,Sopravvivenza pixel in un laboratorio sotterraneo stile SCP.
+19,2024,Anger Foot,Action,cyberpunk,false,FPS pixel surreale in citta criminale. Estetica neon sgangherata.
+20,2024,Animal Well,Adventure,mystery,false,Metroidvania puzzle senza testo pieno di segreti oscuri. Pixel atmosferico unico.
+21,2024,ANTONBLAST,Platformer,"action,retro",false,"Summitsphere. Platformer 2D frenetico ispirato a Wario Land. Anton il demolizionista sfida Satana a colpi di martello. Pixel art esplosiva e caotica, livelli distruttivi, boss enormi."
+22,2024,Cornerpond,Sim,cozy,false,Peschereccio cozy in un angolo tranquillo. Gameplay rilassante.
+23,2024,Crow Country,Adventure,"horror,mystery",false,Horror pixel anni 80 stile PS1 in un parco divertimenti abbandonato.
+24,2024,Harold Halibut,Narrativo,"scifi,cozy",false,Stop-motion pixel su astronave sott acqua. Narrativa slow-burn commovente.
+25,2024,Kathy Rain 2: Soothsayer,P&C,"noir,mystery,horror",false,Detective noir anni 90 con forte paranormale. Pixel art bellissima.
+26,2024,Loco Motive,P&C,"mystery,noir,classic",false,P&C classico su Orient Express anni 30. Humor e misteri da manuale.
+27,2024,Lorelei and the Laser Eyes,Puzzle,"mystery,noir",false,Mystery puzzle raffinatissimo Simogo. Hotel misterioso enigmi labirintici in bianco e nero.
+28,2024,Mouthwashing,Adventure,"horror,mystery,scifi",false,Horror psicologico su astronave in avaria. Visuals stile PS1. Breve e devastante. Molto premiato.
+29,2024,Mullet MadJack,Action,"cyberpunk,scifi",false,Action pixel cyberpunk frenetico. Estetica anime anni 90 distopica.
+30,2024,Neon Hearts City,P&C,"cyberpunk,noir,mystery",false,Erede diretto di Tales of the Neon Sea. Detective cyber pixel neon.
+31,2024,Neva,Action,"mystery,cozy",false,Action pixel commovente Devolver. Donna e lupo contro un mondo che crolla.
+32,2024,Pepper Grinder,Platformer,"action,retro",false,"Devolver Digital. Platformer pirateschi con meccanica di trivellazione unica. Pixel art vivace e ritmica, breve ma intenso. Devolver."
+33,2024,UFO 50,Adventure,"classic,scifi",false,50 giochi pixel d'autore ispirati all'era 8-bit. Fenomeno critico di Derek Yu e soci.
+34,2023,A Space for the Unbound,Narrativo,"mystery,cozy",false,Indonesia anni 90 pixel onirico. Storia commovente su salute mentale.
+35,2023,Beacon Pines,Adventure,"mystery,cozy",false,Avventura pixel con libro interattivo. Storia autunnale su cittadina strana.
+36,2023,Cassette Beasts,RPG,"rpg,scifi",false,Monster collector pixel con lore fantastica su isola misteriosa.
+37,2023,Chants of Sennaar,Puzzle,"mystery,scifi",false,Decifrare lingue antiche in torre babelica. Puzzle pixel unico e premiato.
+38,2023,Coffee Talk Episode 2: Hibiscus & Butterfly,Narrativo,"cozy,cyberpunk",false,Sequel barista cyberpunk. Seattle fantasy relax totale jazz.
+39,2023,Dave the Diver,Adventure,"cozy,mystery",false,Immersioni e sushi restaurant. Mix pixel/3D uno dei migliori 2023.
+40,2023,Dredge,Adventure,"horror,mystery",false,Fishing + horror lovecraftiano. Pixel notturno atmosfera opprimente.
+41,2023,El Paso Elsewhere,Action,"noir,horror,mystery",false,Neo-noir soprannaturale pixel. Sparatutto isometrico con ex demoniaca.
+42,2023,Oxenfree II: Lost Signals,Adventure,"mystery,horror",false,Sequel teen horror narrativo. Radio fantasmi pixel modernissima.
+43,2023,Paranormasight: The Seven Mysteries of Honjo,Narrativo,"horror,mystery",false,Visual novel horror Square Enix nella Tokyo anni 80. Folklore giapponese e maledizioni.
+44,2023,Pizza Tower,Action,"classic,mystery",false,Platformer pixel puro stile Wario Land. Animazioni incredibili.
+45,2023,Planet of Lana,Puzzle,"mystery,cozy,scifi",false,Platformer puzzle cinematografico. Una ragazza e il suo compagno felino salvano un pianeta dall'invasione. Visuals da manuale pixel art.
+46,2023,Read Only Memories: NEURODIVER,Adventure,"cyberpunk,scifi",false,Sequel del cult cyberpunk. Psionica che legge memorie Neo-SF neon.
+47,2023,Sea of Stars,RPG,"rpg,classic",false,Omaggio JRPG 16-bit. Combattimento a turni pixel eccellente.
+48,2023,Slay the Princess,Narrativo,"horror,mystery",false,Black Tabby Games. Visual novel horror psicologica in cui ogni scelta trasforma la principessa. Rami narrativi infiniti. Meta-horror oscuro e sovversivo.
+49,2023,Storyteller,Puzzle,"mystery,classic",false,Puzzle narrativo: componi storie con personaggi e scenari pixel art.
+50,2023,Terra Nil,Sim,"cozy,scifi",false,City builder inverso: ripristina ecosistema e poi sparisci. Pixel zen.
+51,2023,The Excavation of Hob's Barrow,P&C,"horror,mystery",false,Gothic horror victoriano nel Yorkshire. Atmosfera inquietante lenta.
+52,2023,Venba,Narrativo,cozy,false,Immigrazione indiana raccontata attraverso ricette. Emotivo e breve.
+53,2022,ANNO: Mutationem,Action,"cyberpunk,scifi",false,Action RPG cyberpunk alternanza 3D/2D pixel. Neon megacorp hacker.
+54,2022,Chained Echoes,GDR,"fantasy,retro",false,"Matthias Linda (sviluppatore unico). JRPG in stile SNES con mech, draghi e sistema di combattimento a overdrive. Considerato all'altezza di Chrono Trigger. Pixel art 16-bit magistrale."
+55,2022,Chinatown Detective Agency,P&C,"noir,mystery,cyberpunk",false,Detective futuristica Singapore 2032. Puzzle geografici reali.
+56,2022,Citizen Sleeper,Narrativo,"scifi,cyberpunk",false,Corpo robotico dadi sopravvivenza su stazione spaziale.
+57,2022,Cult of the Lamb,RPG,"horror,rpg",false,Roguelite pixel: guida una setta di animali. Oscuro e adorabile.
+58,2022,Neon White,Action,"cyberpunk,scifi",false,FPS speedrun pixel art neon con visual novel tra le missioni.
+59,2022,Nobody Saves the World,RPG,"rpg,mystery",false,RPG pixel shape-shifting. Trasformati in mostri per risolvere dungeon.
+60,2022,Norco,P&C,"noir,mystery",false,Southern Gothic surreale in Louisiana. Scrittura straordinaria.
+61,2022,Pentiment,Narrativo,"mystery,classic",false,RPG narrativo medievale Obsidian. Manoscritto illustrato stile XVI secolo.
+62,2022,Perfect Tides,P&C,"cozy,mystery",false,P&C autobiografico adolescenza 2000. Coming-of-age toccante.
+63,2022,Return to Monkey Island,P&C,"classic,mystery",false,Ron Gilbert torna con Guybrush. Humor e nostalgia intatti.
+64,2022,Rogue Legacy 2,Roguelite,"action,fantasy",false,"Cellar Door Games. Roguelite metroidvania con generazioni di eroi con tratti unici. Ogni discendente eredita il castello. Pixel art colorata, classi infinite, loop irresistibile."
+65,2022,Signalis,Adventure,"horror,scifi,noir",true,Survival horror distopico con robot replicanti. Influenza Silent Hill. Capolavoro.
+66,2022,Strange Horticulture,Adventure,"mystery,horror",false,Erborista occultista. Pixel mystery rilassante con libri e mappe.
+67,2022,Tinykin,Adventure,"cozy,mystery",false,Esploratore pixelato in casa gigante con creature minuscole. Charme totale.
+68,2022,Tunic,Adventure,"mystery,classic",false,Avventura isometrica pixel ispirata a Zelda con manuale da decifrare.
+69,2022,Vampire Survivors,Action,"horror,rpg",false,Roguelite pixel fenomeno globale. Sopravvivi orde di mostri in auto-attacco frenetico.
+70,2021,Backbone,Adventure,"noir,cyberpunk,mystery",true,Procione detective Vancouver distopica. Pixel alta risoluzione.
+71,2021,Chicory: A Colorful Tale,Adventure,"cozy,mystery",false,Avventura pixel in bianco e nero da colorare. Commovente e unica di Greg Lobanov.
+72,2021,Deltarune Chapter 2,RPG,"mystery,rpg",false,Sequel Undertale. Pixel espressivo umorismo e malinconia.
+73,2021,Disco Elysium: The Final Cut,RPG,"noir,mystery,rpg",true,Capolavoro assoluto. Detective in crisi esistenziale RPG solo dialogo. GOTY.
+74,2021,Eastward,RPG,"rpg,scifi",false,Action RPG padre-figlia post-apoc. Grafica mozzafiato.
+75,2021,Hoa,Puzzle,"cozy,mystery",false,Platformer puzzle pixel art tenero ispirato a Studio Ghibli.
+76,2021,Inscryption,RPG,"horror,mystery,rpg",true,Roguelike narrativo meta-horror con carte. Strato dopo strato svela segreti oscuri. Capolavoro.
+77,2021,Lacuna: A Sci-Fi Noir Adventure,P&C,"noir,scifi,mystery",false,Detective p&c su pianeta alieno crisi politica. Pixel cyberpunk.
+78,2021,Lake,Narrativo,cozy,false,Postina in cittadina anni 80. Lento rilassante storia di scelte.
+79,2021,Loop Hero,RPG,"rpg,mystery",false,Roguelike loop pixel ricostruisci il mondo pezzo per pezzo.
+80,2021,Minute of Islands,Adventure,"mystery,scifi",false,Avventura pixel solitaria in mondo di isole galleggianti. Toni bui poetici.
+81,2021,Narita Boy,Action,"cyberpunk,scifi",false,Action pixel cyberpunk neon anni 80. Estetica synth straordinaria di Studio Koba.
+82,2021,Olija,Action,"mystery,horror",false,Action pixel oscuro e poetico con arpione. Ambientazione isolana misteriosa e onirica.
+83,2021,Papetura,Puzzle,"mystery,cozy",false,Tutto fatto di carta. Silenzioso onirico pixel artigianale.
+84,2021,Roki,Adventure,"mystery,cozy",false,Avventura pixel nordica con folklore scandinavo. Tenero e oscuro insieme.
+85,2021,The Forgotten City,Adventure,"mystery,classic,scifi",false,Mystery romano in loop temporale. Remake mod Skyrim diventato standalone.
+86,2021,Toem,Adventure,cozy,false,Avventura fotografica pixel cozy. Risolvi problemi della comunita scattando foto.
+87,2021,Unpacking,Narrativo,cozy,false,Disfare scatole = raccontare una vita. Zen poetico pixel domestico.
+88,2021,Voice of Cards: The Isle Dragon Roars,RPG,"rpg,mystery",false,RPG completamente su carte disegnate. Narrazione orale pixel.
+89,2021,Wildermyth,RPG,"rpg,mystery",false,Tactical RPG con generazione procedurale di storie pixel art.
+90,2020,Carrion,Action,"horror,scifi",false,Horror pixel inverso: sei il mostro che terrorizza il laboratorio.
+91,2020,Cloudpunk,Adventure,"cyberpunk,scifi,noir",true,Corriere notturna Neo-Hong Kong. Pixel 3D/2D narrativa ramificata.
+92,2020,Coffee Talk,Narrativo,"cozy,cyberpunk",false,Barista Seattle fantasy con elfi e licantropi. Visual novel rilassante.
+93,2020,Creaks,Puzzle,"mystery,horror",false,Amanita Design. Puzzle pixel in castello di creature-mobili. Arte surreale.
+94,2020,Hades,Action,"rpg,mystery",false,Roguelite mitologico pixel modernissimo. Narrativa eccellente.
+95,2020,Helltaker,Puzzle,"horror,mystery",false,Puzzle grid demoniaco con dialoghi sorprendenti. Pixel minimal stile.
+96,2020,Interrogation: You Will Be Deceived,Adventure,"noir,mystery",false,Detective morale: interrogatori con scelte difficili. Pixel noir.
+97,2020,Iron Lung,Adventure,"horror,scifi",false,Horror claustrofobico pixel in sottomarino su oceano di sangue.
+98,2020,Murder by Numbers,Puzzle,"mystery,noir",false,Nonogram + detective anni 90. Pixel colorato musica synth.
+99,2020,Omori,RPG,"horror,mystery,rpg",false,RPG psicologico su depressione e trauma. Due mondi pixel onirico. Capolavoro.
+100,2020,Spiritfarer,Sim,"cozy,mystery",false,Gestisci un traghetto per anime. Commovente rilassante.
+101,2020,Suzerain,Narrativo,"mystery,scifi,noir",false,Political RPG testuale. Sei un presidente con scelte morali impossibili. Pixel interface.
+102,2020,Wildfire,Action,"mystery,scifi",false,Stealth pixel con poteri elementali in villaggio in fiamme.
+103,2019,A Short Hike,Adventure,cozy,false,Breve avventura pixel su un'isola di montagna. Gemma cozy perfetta e memorabile.
+104,2019,Baba Is You,Puzzle,mystery,false,Puzzle pixel dove le regole del gioco sono oggetti modificabili. Genio puro.
+105,2019,Blasphemous,Action,"horror,mystery",false,Metroidvania horror pixel ispirato all'arte sacra spagnola. Oscuro brutale e bellissimo.
+106,2019,Disco Elysium,RPG,"noir,mystery,rpg",true,Capolavoro. RPG solo-dialogo detective senza memoria mondo post-ideologico.
+107,2019,Elsinore,Adventure,"mystery,classic",false,Ofelia in loop temporale durante Amleto. Pixel dialogo aperto scelte morali.
+108,2019,Heaven's Vault,Adventure,"mystery,scifi",false,Archeologia linguistica su luna futuristica. Pixel narrative unica.
+109,2019,Hypnospace Outlaw,Adventure,"mystery,scifi",false,Navighi un internet parallelo anni 90 come moderatore. Originalissimo.
+110,2019,Indivisible,Action,"rpg,classic",false,Action RPG pixel arte mista ispirati a Valkyrie Profile e Skullgirls.
+111,2019,Jenny LeClue: Detectivu,Adventure,"mystery,noir",false,Meta-narrativa: detective junior in citta tranquilla. Arte mista pixel.
+112,2019,Katana Zero,Action,"cyberpunk,noir",false,Assassino a spada in citta neon. Action pixel feroce narrativa distorta.
+113,2019,Little Misfortune,Adventure,"horror,mystery,cozy",false,Spinoff Fran Bow. Bambina segue voce misteriosa nel bosco. Pixel oscuro tenero.
+114,2019,Lonely Mountains: Downhill,Action,cozy,false,MTB pixel art in montagne solitarie. Atmosfera meditativa score attack.
+115,2019,Mutazione,Narrativo,"mystery,cozy",false,Visual novel mutation garden. Comunita post-apocalittica e storie familiari.
+116,2019,Neo Cab,Narrativo,"cyberpunk,noir,mystery",false,Taxista in citta neon ultima umana in un mondo di auto autonome.
+117,2019,Pathologic 2,Narrativo,"horror,mystery",false,Narrativo duro in citta in epidemia. Pixel distopico difficile e unico.
+118,2019,Tales of the Neon Sea,P&C,"cyberpunk,noir,mystery",true,IL riferimento. Detective citta neon robot/umani. P&c pixel perfetto.
+119,2019,Untitled Goose Game,Adventure,"cozy,mystery",false,Oca pixel disturba una tranquilla cittadina inglese. Puro caos rilassante.
+120,2019,Whispers of a Machine,P&C,"scifi,mystery,noir",false,Detective cybernetic post-AI. P&c pixel nordic noir ottimamente doppiato.
+121,2019,Yuppie Psycho,Adventure,"horror,mystery",false,Primo giorno in megacorpo. Horror pixel satira aziendale e occulto.
+122,2018,Celeste,Action,"mystery,cozy",false,Platformer pixel su scalata emotiva. Metafora depressione meccaniche perfette.
+123,2018,CrossCode,RPG,"scifi,rpg",false,Action RPG pixel ambientato in un MMORPG del futuro. Puzzle eccellenti.
+124,2018,Dead Cells,Action,"horror,rpg,scifi",false,Roguelite metroidvania pixel. Combattimento fluido lore a frammenti.
+125,2018,Deltarune Chapter 1,RPG,"mystery,rpg",false,Prologo Deltarune di Toby Fox. Pixel RPG pacifismo vs combattimento.
+126,2018,FAR: Lone Sails,Adventure,"mystery,scifi,cozy",false,Avventura silenziosa pixel post-apoc. Guidi un veicolo solitario nel deserto.
+127,2018,Hero-U: Rogue to Redemption,RPG,"rpg,mystery,classic",false,RPG narrativo Sierra alumni. Scuola di ladri pixel dialogo ricco.
+128,2018,Into the Breach,Puzzle,"scifi,rpg",false,Mech tattici nel futuro pixel. Puzzle strategico roguelite capolavoro.
+129,2018,Lamplight City,P&C,"noir,mystery",false,Grundislav Games. Detective vittoriano steampunk. P&C pixel noir narrativa ramificata oscura.
+130,2018,Minit,Adventure,"mystery,cozy",false,B&N: 60 secondi poi si muore e si riparte. Geniale.
+131,2018,Omensight,Action,"mystery,scifi",false,Uccidi il killer prima che distrugga il mondo. Loop temporale pixel.
+132,2018,Orwell: Ignorance is Strength,Adventure,"scifi,mystery,noir",false,Sorveglianza di stato propaganda verita vs bugie. Thriller pixel.
+133,2018,Return of the Obra Dinn,Puzzle,"mystery,noir,classic",true,Capolavoro Lucas Pope. Ricostruisci la morte di 60 marinai. Mono pixel unico. GOTY 2018.
+134,2018,The Red Strings Club,Adventure,"cyberpunk,noir,scifi",false,Barista hacker robot memoria programmata. Pixel cyberpunk etico.
+135,2018,Unavowed,P&C,"mystery,scifi",false,Wadjet Eye. Possessione demoniaca cacciatori soprannaturale NYC pixel.
+136,2018,Wandersong,Adventure,"cozy,mystery",false,Bardo pixel che salva il mondo cantando. Colorato gioioso e con un cuore enorme.
+137,2017,A Hat in Time,Action,"cozy,mystery",false,3D platformer con estetica pixel. Carisma enormissimo avventura cartoon.
+138,2017,Battle Chef Brigade,RPG,"cozy,mystery",false,Cooking + combattimento pixel. Torneo di cucina in mondo fantasy.
+139,2017,Detention,Adventure,"horror,mystery",false,Taiwan anni 60 legge marziale. Horror p&c con mitologia taoista straziante.
+140,2017,Doki Doki Literature Club,Narrativo,"horror,mystery",false,Visual novel che si rompe. Meta-horror psicologico gratuito. Inizia innocente finisce oscuro.
+141,2017,Finding Paradise,Narrativo,"mystery,cozy",false,Sequel To the Moon. Scienziati alterano memorie prima della morte.
+142,2017,Full Throttle Remastered,P&C,"classic,noir",false,LucasArts 95 rimasterizzato. Biker road movie pixel/HD selezionabile.
+143,2017,Golf Story,RPG,"cozy,rpg",false,Golf pixel con storia di redenzione sportiva. Mix unico genre.
+144,2017,Hollow Knight,Action,"mystery,horror,scifi",true,Metroidvania pixel fondamentale. Insetto cavaliere in regno sotterraneo oscuro. Capolavoro.
+145,2017,Night in the Woods,Adventure,"mystery,cozy,horror",false,Gattina torna in citta natale misteri e declino. Pixel sidescroller narrativo.
+146,2017,Paradigm,P&C,"scifi,mystery",false,Mutante in futuro post-apoc est Europa. P&c pixel surreale humor dark.
+147,2017,Rakuen,RPG,"cozy,mystery,rpg",false,Bambino in ospedale esplora mondo fantastico. RPG pixel narrativo emotivo.
+148,2017,Slime Rancher,Sim,"cozy,scifi",false,Ranch di slime pixel. Esplorare pianeta alieno raccogliere creature.
+149,2017,The Darkside Detective,P&C,"mystery,horror",false,Spooky Doorway. P&C pixel episodico detective comico-horror. Arte low-res affascinante. Cult.
+150,2017,The Sexy Brutale,Adventure,"mystery,horror",false,Masquerade in loop: salva tutti i guest dal killer ogni giorno.
+151,2017,Thimbleweed Park,P&C,"mystery,noir,classic",false,Ron Gilbert & Winnick. X-Files + Monkey Island in citta bizzarra.
+152,2017,Tokyo Dark,Adventure,"noir,horror,mystery",false,Detective Tokyo scomparsa partner spirito oscuro. Pixel giapponese.
+153,2016,Darkest Dungeon,RPG,"horror,rpg",false,Gothic horror roguelite gestionale. Stress sanita mentale pixel oscurissimo.
+154,2016,Day of the Tentacle Remastered,P&C,"classic,mystery",false,LucasArts 93 rimasterizzato. Pixel originale selezionabile.
+155,2016,Hyper Light Drifter,Action,"mystery,scifi",false,Action RPG pixel senza testo. Lore visiva post-apoc magnificente.
+156,2016,Kathy Rain,P&C,"noir,mystery",false,Studentessa-detective anni 90. P&c pixel classico atmosfera Twin Peaks.
+157,2016,OneShot,Adventure,"mystery,scifi,rpg",false,Pixel RPG meta: il gioco sa che stai giocando. Puzzle unici lore enorme.
+158,2016,Orwell: Keeping an Eye on You,Adventure,"scifi,mystery,noir",false,Analista sorveglianza di massa. Thriller pixel interface dilemmi morali.
+159,2016,Owlboy,Adventure,"mystery,classic",false,Pixel art maestosa sviluppata in 9 anni. Avventura commovente con un gufo muto.
+160,2016,Pony Island,Puzzle,"horror,mystery",false,Meta-horror pixel. Un gioco arcade in cui qualcosa non va. Breve e disturbante.
+161,2016,Punch Club,RPG,"rpg,mystery",false,Gestionale pixel di un pugile. Stile anni 80-90 con misteri e combattimenti.
+162,2016,Rusty Lake: Roots,Puzzle,"horror,mystery",false,Rusty Lake serie. Puzzle escape-room pixel narrativo oscuro generazionale.
+163,2016,Samorost 3,Puzzle,"mystery,cozy,scifi",false,Amanita Design. Gnomo spaziale pixel poetico. Puzzle senza testo universo onirico.
+164,2016,Shardlight,P&C,"scifi,noir,mystery",false,Wadjet Eye. Post-apocalisse epidemia rivoluzione. P&c pixel distopico.
+165,2016,Stardew Valley,Sim,"cozy,rpg",false,Farming sim pixel con storia di fuga dalla megacorpo. Cult generazionale.
+166,2016,VA-11 Hall-A: Cyberpunk Bartender Action,Narrativo,"cyberpunk,cozy,scifi",true,Barista in distopia neon. Visual novel conversazionale cocktail cult assoluto.
+167,2015,Cube Escape: Seasons,Puzzle,"horror,mystery",false,Prima Rusty Lake. Escape room pixel gratuita con lore ricchissima crescente.
+168,2015,Dropsy,Adventure,"mystery,cozy",false,Clown deformato cerca amore. Pixel senza testo puro feeling.
+169,2015,Fran Bow,Adventure,"horror,mystery",false,Bambina in istituto psichiatrico con gatto nero. Horror pixel oscuro e tenero. Cult.
+170,2015,Grim Fandango Remastered,P&C,"noir,classic,mystery",false,LucasArts 98 rimasterizzato. Manny Calavera detective nellaldila messicano.
+171,2015,Oxenfree,Adventure,"mystery,horror",false,Teenager apre portale radio su isola. Narrativa branching pixel modernissima.
+172,2015,Read Only Memories,Adventure,"cyberpunk,scifi,mystery",false,Neo-SF 2064 robot sentiente amico. P&c pixel cyberpunk LGBTQ positivo.
+173,2015,Stasis,P&C,"horror,scifi",false,Horror sci-fi su astronave abbandonata. P&c isometrico pixel.
+174,2015,Technobabylon,P&C,"cyberpunk,scifi,noir",false,P&c cyberpunk distopico AI droga neurale. Pixel dettagliata dialoghi ricchi.
+175,2015,The Detail,Adventure,"noir,mystery",false,Noir episodico in citta criminale. Scelte morali detective pixel.
+176,2015,Undertale,RPG,"mystery,rpg,classic",true,RPG che capovolge il genere: non uccidere nessuno. Toby Fox. Capolavoro indie assoluto.
+177,2014,80 Days,Adventure,"mystery,classic,scifi",false,Jules Verne steampunk pixel. Giro mondo 80 giorni branching massiccio.
+178,2014,A Bird Story,Narrativo,"cozy,mystery",false,Prequel To the Moon. Breve senza parole pixel tenero su un uccellino.
+179,2014,Always Sometimes Monsters,RPG,"noir,mystery,rpg",false,RPG narrativo sulle scelte morali quotidiane. Pixel art realista.
+180,2014,Blackwell Epiphany,P&C,"mystery,noir,classic",false,Finale serie Blackwell. Rosangela e Joey medium detective NYC pixel.
+181,2014,Jazzpunk,Adventure,"mystery,scifi",false,Commedia assurda spionaggio pixel. Spy comedy dadaista originalissima.
+182,2014,Neverending Nightmares,Adventure,"horror,mystery",false,Horror psicologico B&N pixel ispirato alle nevrosi reali dello sviluppatore.
+183,2014,Shadowgate,Adventure,"mystery,classic,rpg",false,Remake classico NES. Castello dark fantasy pixel puzzle mortali.
+184,2014,Shovel Knight,Action,"classic,rpg",false,Platformer pixel omaggio NES impeccabile. Personaggi memorabili.
+185,2014,The Samaritan Paradox,P&C,"mystery,noir",false,Traduttore svedese indaga manoscritto misterioso. P&c pixel scandinavo.
+186,2014,Transistor,Action,"scifi,noir,cyberpunk",false,Action RPG pixel isometrico futuristico. Narrativa poetica musica sublime.
+187,2013,Device 6,Puzzle,"mystery,scifi",false,Testo come labirinto. Thriller pixel narrativo su isola sperimentale.
+188,2013,Don't Starve,Adventure,"horror,mystery",false,Survival horror pixel gotico Tim Burton. Sopravvivi nel buio.
+189,2013,Kentucky Route Zero Act I,Narrativo,"mystery,scifi",false,Magic realism americano camionista su autostrada segreta. Pixel impressionista.
+190,2013,Papers Please,Adventure,"mystery,scifi,noir",false,Doganiere in stato totalitario. Pixel grigio thriller morale brillante.
+191,2013,The Last Door,P&C,"horror,mystery",false,Victorian gothic horror pixel bassa risoluzione. Lovecraft + Poe.
+192,2013,Year Walk,Adventure,"horror,mystery",false,Folklore svedese oscuro. Avventura pixel horror atmosfera unica.
+193,2012,Blackwell Deception,P&C,"mystery,noir",false,Serie Blackwell. Rosangela e Joey vs cult. Pixel noir NYC.
+194,2012,Botanicula,Puzzle,"mystery,cozy",false,Amanita Design. Cinque creature-albero salvano l ultimo seme. Pixel poetico.
+195,2012,Deponia,P&C,"mystery,classic",false,Daedalic. Trilogia P&C piu popolare del revival anni 2010. Disastri comici di Rufus su un pianeta-discarica. Comic pixel art brillante.
+196,2012,FTL: Faster Than Light,RPG,"scifi,rpg",false,Roguelite spaziale gestionale. Pixel minimalista decisioni vita/morte.
+197,2012,Hotline Miami,Action,"cyberpunk,noir,horror",false,Top-down violento neon 80s. Pixel viscerale narrativa distorta.
+198,2012,Lone Survivor,Adventure,"horror,mystery",false,Survival horror pixel minimalista. Sopravvissuto in citta devastata.
+199,2012,Mark of the Ninja,Action,"mystery,noir",false,Stealth 2D pixel impeccabile. Ninja urbano con decisioni morali.
+200,2012,Primordia,P&C,"scifi,mystery,noir",false,Robot post-apocalittico cerca origini. P&c pixel distopico filosofia esistenziale.
+201,2012,Resonance,P&C,"scifi,mystery",false,Wadjet Eye. Fisico muore 4 personaggi cercano il segreto.
+202,2012,Superbrothers: Sword & Sworcery EP,Adventure,"mystery,cozy,rpg",false,Pixel art avant-garde iconico. Musica Jimguthrie ritmo lunare.
+203,2012,The Silent Age,Adventure,"mystery,scifi",false,Anni 70 viaggio nel tempo post-apoc. P&c pixel monocromatico elegante.
+204,2011,Bastion,Action,"mystery,rpg,scifi",false,Action RPG pixel narratore onnisciente. Arte isometrica straordinaria.
+205,2011,Blackwell Desolation,P&C,"mystery,noir",false,Quarto episodio della serie Blackwell. Rosangela e Joey affrontano casi complessi a New York.
+206,2011,Gemini Rue,P&C,"noir,scifi,mystery",true,Noir sci-fi su pianeta piovoso. P&c pixel cyberpunk memoria condizionata. Capolavoro.
+207,2011,Sequence,RPG,"scifi,rpg",false,RPG con ritmo e crafting ambientato in purgatorio digitale.
+208,2011,To the Moon,Narrativo,"mystery,cozy,rpg",true,Scienziati alterano ultima memoria di un moribondo. RPG pixel che fa piangere.
+209,2010,Amnesia: The Dark Descent,Adventure,"horror,mystery",false,Horror atmosferico capolavoro. Terrore psicologico senza combattimento.
+210,2010,Limbo,Puzzle,"mystery,horror",false,Puzzle pixel B&N silhouette. Atmosfera onirica oscura. Capolavoro indie.
+211,2010,Monkey Island 2 SE: LeChuck's Revenge,P&C,"classic,mystery",false,LucasArts 91 rimasterizzato HD. Pixel originale selezionabile.
+212,2010,Puzzle Agent,Adventure,"mystery,noir",false,FBI risolve puzzle in citta ghiacciata. Pixel stile cartoon Fargo-esque.
+213,2009,Machinarium,Puzzle,"scifi,mystery,cozy",false,Amanita Design. Robot in citta meccanica. P&c puzzle pixel hand-drawn senza testo.
+214,2009,The Book of Unwritten Tales,P&C,"mystery,classic",false,KING Art. Revival P&C fantasy eccellente pixel art curata. Umorismo tagliente e grande seguito cult.
+215,2009,The Secret of Monkey Island Special Edition,P&C,"classic,mystery",true,LucasArts 90 rimasterizzato. Pixel originale disponibile. Fondante.
+216,2009,Zack & Wiki: Quest for Barbaros' Treasure,P&C,"classic,mystery",false,P&c puzzle Capcom. Pirati pixel puzzle inventivi.
+217,2008,Blackwell Convergence,P&C,"mystery,noir",false,Terzo episodio Blackwell. Fantasmi risolti da medium e ghost Joey NYC pixel.
+218,2008,Edna & Harvey: The Breakout,P&C,"mystery,horror",false,Daedalic. Prima grande P&C tedesca. Bambina fugge da una clinica psichiatrica con il suo coniglio parlante. Dark comedy pixel retrò eccellente.
+219,2008,Still Life 2,P&C,"noir,mystery",false,Detective thriller pixel cross-temporale due donne due ere.
+220,2007,Blackwell Unbound,P&C,"mystery,noir,classic",false,Prequel Blackwell 1973. Zia di Rosangela come medium. NYC vintage.
+221,2007,The Whispered World,P&C,"mystery,cozy",false,P&c pixel melanconia. Protagonista goblin in mondo fantastico destinato a finire.
+222,2006,Blackwell Legacy,P&C,"mystery,noir,classic",false,Inizio serie Blackwell. Rosangela scopre di essere medium.
+223,2005,Ankh,P&C,"mystery,classic",false,P&c pixel egizio umoristico. Maledizione faraone avventura comica.
+224,2005,Samorost 2,Puzzle,"mystery,cozy,scifi",false,Amanita Design. Gnomo spaziale pixel seguito. Puzzle poetico senza testo.
+225,2004,Still Life,P&C,"noir,mystery",false,Detective thriller pixel. Caso del nonno riesumato dalla nipote investigatrice.
+226,2004,Syberia II,P&C,"mystery,classic",false,Sequel immediato. Kate Walker continua la ricerca oltre il confine siberiano.
+227,2003,Runaway: A Road Adventure,P&C,"mystery,classic",false,P&c pixel europeo. Giovane trascinato in fuga da gangster e FBI.
+228,2003,Samorost,Puzzle,"mystery,cozy,scifi",false,Amanita Design originale. Flash pixel poetico. Gnomo salva il suo pianeta.
+229,2002,Syberia,P&C,"mystery,classic",false,P&c europeo con mammut meccanici. Arte pixel industriale steampunk.
+230,2000,Escape from Monkey Island,P&C,"classic,mystery",false,Quarto Monkey Island con motore 3D. Pixel di transizione ma ironia intatta.
+231,1999,Discworld Noir,P&C,"noir,mystery,classic",false,Noir nel mondo piatto di Terry Pratchett. P&c pixel atmosfera grigia.
+232,1999,The Longest Journey,P&C,"mystery,scifi",false,Funcom/Tørnquist. April Ryan tra due mondi. Capolavoro assoluto del P&C narrativo. Rivoluzionario.
+233,1998,Broken Sword 2: The Smoking Mirror,P&C,"mystery,classic",false,Secondo capitolo G.Stobbart. Magia maya pixel europeo avventura.
+234,1998,Grim Fandango,P&C,"noir,classic,mystery",true,Capolavoro LucasArts. Manny Calavera agenzia viaggi dei morti. Pixel noir messicano.
+235,1998,Quest for Glory V: Dragon Fire,RPG,"rpg,mystery,classic",false,Ultimo QFG. Sierra fantasy avventura con combattimento a Silmaria.
+236,1998,Sanitarium,Adventure,"horror,mystery",false,Amnesia ospedali psichiatrici realta alternative. Avventura pixel horror oscura.
+237,1997,Discworld 2: Mortality Bytes,P&C,"mystery,classic",false,Sequel con Terry Pratchett e Eric Idle. Morte e rinascita nel mondo piatto pixel.
+238,1997,Riven: The Sequel to Myst,Puzzle,"mystery,scifi",false,Sequel di Myst. Isole misteriose rendering pre-render.
+239,1997,The Curse of Monkey Island,P&C,"classic,mystery",false,Terzo Monkey Island stile cartoon dipinto. Pixel art bellissimo.
+240,1996,Broken Sword: The Shadow of the Templars,P&C,"mystery,classic",true,Revolution Software. George Stobbart e i Templari. P&c pixel europeo fondante.
+241,1996,Full Throttle,P&C,"classic,noir",false,LucasArts originale. Biker Ben Throttle contro mega-corporazione.
+242,1996,Leisure Suit Larry 7: Love for Sail,P&C,"mystery,classic",false,Sierra. Larry su nave da crociera. Pixel umoristico adulto.
+243,1996,The Dig,P&C,"mystery,scifi,classic",false,LucasArts sci-fi serio. Asteroide alieno pixel arte rara.
+244,1996,The Neverhood,Adventure,"mystery,classic",false,DreamWorks/Shiny. Avventura in claymation pura. Arte completamente artigianale e unica al mondo. Colonna sonora cult di Terry S. Taylor.
+245,1995,Discworld,P&C,"mystery,classic",false,P&c Terry Pratchett. Rincewind pixel umoristico con voce Eric Idle.
+246,1995,Gabriel Knight 2: The Beast Within,P&C,"mystery,horror,classic",false,GK FMV/pixel. Monaco Baviera lupi mannari opera melodramma.
+247,1995,"I Have No Mouth, and I Must Scream",P&C,"horror,mystery,scifi",false,Cyberdreams/Harlan Ellison. Sei personaggi intrappolati da una IA sadica per sempre. P&C horror psicologico oscuro e disturbante. Classico assoluto.
+248,1995,Phantasmagoria,Adventure,"horror,mystery,classic",false,Sierra FMV horror adulto. Scrittrice in casa stregata. Pixel/video piena.
+249,1995,Simon the Sorcerer II,P&C,"classic,mystery",false,Sequel del mago sassone. Pixel humor inglese parodia fiabe.
+250,1995,Space Quest VI: The Spinal Frontier,P&C,"scifi,mystery,classic",false,Sierra. Capitolo finale di Roger Wilco. Parodia sci-fi pixel P&C tecnicamente il piu avanzato della serie.
+251,1995,Torin's Passage,P&C,"mystery,classic",false,Sierra/Al Lowe. P&C pixel fantasy con arte prerendered bellissima e umorismo ironico gentile.
+252,1994,Beneath a Steel Sky,P&C,"cyberpunk,scifi,classic,noir",true,GRATIS su GOG. Cyberpunk distopico. Robert Foster vs megacorp. Leggenda.
+253,1994,The Legend of Kyrandia 3: Malcolm's Revenge,P&C,"mystery,classic",false,Terzo Kyrandia. Malcolm villain protagonista pixel fantasy avventura.
+254,1993,Day of the Tentacle,P&C,"classic,mystery",false,LucasArts capolavoro. Viaggio nel tempo pixel puzzle comico.
+255,1993,Freddy Pharkas: Frontier Pharmacist,P&C,"mystery,classic",false,Sierra Ken Williams. Western parodia pixel. Farmacista cowboy.
+256,1993,Gabriel Knight: Sins of the Fathers,P&C,"mystery,horror,classic",false,Sierra. Scrittore cacciatore di mostri New Orleans voodoo pixel.
+257,1993,Leisure Suit Larry 6: Shape Up or Slip Out,P&C,"mystery,classic",false,Sierra. Larry in resort di lusso. Pixel VGA umorismo adulto.
+258,1993,Myst,Puzzle,"mystery,scifi",false,Fondante del puzzle adventure. Isola misteriosa pre-render. Milioni di copie.
+259,1993,Police Quest: Open Season,P&C,"noir,mystery,classic",false,Sierra quarto PQ a Los Angeles con omicidi di strada. Pixel realistico.
+260,1993,Quest for Glory IV: Shadows of Darkness,RPG,"rpg,mystery,horror,classic",false,Sierra QFG4 in Transilvania gotica pixel. Horror fantasy avventura.
+261,1993,Sam & Max Hit the Road,P&C,"classic,mystery",false,Freelance Police on the road. Pixel humor surreale Steve Purcell.
+262,1993,Simon the Sorcerer,P&C,"classic,mystery",false,P&c inglese con mago adolescente. Pixel humor parodia Tolkien.
+263,1993,Space Quest V: The Next Mutation,P&C,"mystery,scifi,classic",false,Sierra. Roger Wilco capitano pixel spaziale. Parodia Star Trek.
+264,1993,The Legend of Kyrandia 2: Hand of Fate,P&C,"mystery,classic",false,Westwood. Secondo Kyrandia. Branwen cerca il suo corpo pixel fantasy.
+265,1992,Indiana Jones and the Fate of Atlantis,P&C,"mystery,classic",true,LucasArts. Indy cerca Atlantide contro i nazisti. Miglior Indy interattivo.
+266,1992,King's Quest VI: Heir Today Gone Tomorrow,P&C,"mystery,classic",false,Sierra. Il migliore KQ. Alexander cerca la principessa pixel arte migliorata.
+267,1992,Laura Bow 2: The Dagger of Amon Ra,P&C,"mystery,noir,classic",false,Sierra. Reporter e omicidio al museo egizio pixel 1920s.
+268,1992,Lure of the Temptress,P&C,"mystery,classic",false,Revolution Software primo gioco prima di Broken Sword. P&C pixel medievale fondante per lo studio.
+269,1992,Quest for Glory I: So You Want to Be a Hero,RPG,"rpg,mystery,classic",false,Sierra remake VGA. QFG1 fantasy avventura con classi personaggio pixel migliorato.
+270,1992,Quest for Glory III: Wages of War,RPG,"rpg,mystery,classic",false,Sierra QFG3 in Africa fantasy pixel. Tribale avventura.
+271,1991,Conquests of the Longbow: The Legend of Robin Hood,P&C,"mystery,classic",false,Sierra. Robin Hood pixel avventura decisioni morali. Arte VGA bellissima.
+272,1991,Cruise for a Corpse,P&C,"noir,mystery,classic",false,Delphine Software. Murder mystery su yacht anni 30. P&C pixel francese elegante e atmosferico.
+273,1991,Kyrandia: Book One,P&C,"mystery,classic",false,Westwood Studios. Fantasy pixel avventura. Re Brandywine e jester maligno.
+274,1991,Monkey Island 2: LeChuck's Revenge,P&C,"classic,mystery",true,LucasArts originale. Il migliore della serie. Guybrush e LeChuck pixel capolavoro.
+275,1991,Space Quest IV: Roger Wilco and the Time Rippers,P&C,"mystery,scifi,classic",false,Sierra. Roger Wilco viaggio nel tempo pixel sci-fi umoristico.
+276,1991,Willy Beamish,P&C,"mystery,classic",false,Dynamix. Estate caotica di un bambino prima della scuola. P&C pixel satirico scuro. Arte eccezionale.
+277,1990,King's Quest V: Absence Makes the Heart Go Yonder,P&C,"mystery,classic",false,Sierra. Graham pixel fantasy. Prima produzione VGA Sierra.
+278,1990,Loom,P&C,"mystery,classic",false,LucasArts. Tessitore di sogni con flauto magico. Pixel art poetico.
+279,1990,Police Quest 3: The Kindred,P&C,"noir,mystery,classic",false,Sierra. Detective Sonny Bonds pixel poliziesco realistico.
+280,1990,Quest for Glory II: Trial by Fire,RPG,"rpg,mystery,classic",false,Sierra QFG2 in citta araba pixel. Magia e spade fantasy avventura.
+281,1990,Rise of the Dragon,P&C,"noir,cyberpunk,mystery",false,Dynamix. Detective noir a Los Angeles 2053. P&C pixel cyberpunk con cutscenes animate. Gemma dimenticata.
+282,1990,Space Quest III: The Pirates of Pestulon,P&C,"mystery,scifi,classic",false,Sierra. Roger Wilco contra pirati del software pixel. Parodia sci-fi.
+283,1990,The Secret of Monkey Island,P&C,"classic,mystery",true,LucasArts 90/91. Guybrush Threepwood. Fondante assoluto genere P&c.
+284,1989,Indiana Jones and the Last Crusade,P&C,"mystery,classic",false,LucasArts. Avventura pixel parallela al film graal e nazisti.
+285,1989,Laura Bow: The Colonel's Bequest,P&C,"mystery,noir,classic",false,Sierra Roberta Williams. Omicidio in villa anni 20. Pixel mystery classico.
+286,1989,Leisure Suit Larry 3: Passionate Patti,P&C,"mystery,classic",false,Sierra. Larry e Patti pixel avventura adulta umoristica isola tropicale.
+287,1989,Police Quest 2: The Vengeance,P&C,"noir,mystery,classic",false,Sierra. Sonny Bonds riprende il serial killer Jessie Bains. Pixel poliziesco.
+288,1989,Quest for Glory I: Hero's Quest,RPG,"rpg,mystery,classic",false,Sierra originale EGA. QFG1 prima versione. Fantasy avventura con skill system.
+289,1989,Space Quest II: Vohaul's Revenge,P&C,"mystery,scifi,classic",false,Sierra. Roger Wilco nella luna penitenziaria pixel sci-fi parodia.
+290,1988,King's Quest IV: The Perils of Rosella,P&C,"mystery,classic",false,Sierra. Prima KQ con protagonista femminile. Pixel fantasy avventura.
+291,1988,Leisure Suit Larry 2: Goes Looking for Love,P&C,"mystery,classic",false,Sierra. Larry sopravvive disastri globali pixel avventura adulta umoristica.
+292,1988,Maniac Mansion,P&C,"mystery,horror,classic",false,LucasArts 1987/88. SCUMM engine fondante. Pixel avventura grafica capolavoro.
+293,1988,Police Quest: In Pursuit of the Death Angel,P&C,"noir,mystery,classic",false,Sierra Jim Walls. Prima Police Quest. Pixel poliziesco realistico procedurale.
+294,1988,Zak McKracken and the Alien Mindbenders,P&C,"mystery,scifi,classic",false,LucasArts. Tabloid reporter contro alieni che abbrutiscono l umanita. Pixel cult.
+295,1987,King's Quest III: To Heir is Human,P&C,"mystery,classic",false,Sierra. Gwydion schiavo del mago pixel fantasy avventura.
+296,1987,Leisure Suit Larry in the Land of the Lounge Lizards,P&C,"mystery,classic",false,Sierra. P&c adulto umoristico fondante. Larry Laffer pixel avventura originale.
+297,1987,Space Quest I: The Sarien Encounter,P&C,"mystery,scifi,classic",false,Sierra originale. Roger Wilco janitor spaziale contro i Sariens. Pixel parodia.
+298,1986,King's Quest II: Romancing the Throne,P&C,"mystery,classic",false,Sierra. Graham cerca la futura regina. Pixel fantasy avventura seconda parte.
+299,1984,King's Quest: Quest for the Crown,P&C,"mystery,classic",false,Sierra originale 1984. Graham e il graal pixel fondante assoluto del genere.
