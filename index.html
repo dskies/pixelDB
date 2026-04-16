@@ -203,6 +203,18 @@
     color:var(--accent); animation:blink 1s step-end infinite;
   }
   @keyframes blink{0%,100%{opacity:1;}50%{opacity:0;}}
+
+  footer {
+    border-top: 1px solid var(--border);
+    padding: 1.2rem 2rem;
+    text-align: center;
+    font-size: 0.52rem;
+    color: var(--muted);
+    line-height: 1.8;
+    letter-spacing: 0.04em;
+  }
+  footer a { color: var(--muted); text-decoration: underline; }
+  footer a:hover { color: var(--accent); }
 </style>
 </head>
 <body>
@@ -255,6 +267,8 @@
   </table>
 </div>
 
+<footer id="footer-privacy"></footer>
+
 <script>
 // ── LANGUAGE ──────────────────────────────────────────────────────────────────
 const I18N = {
@@ -272,6 +286,7 @@ const I18N = {
     loading:     'CARICAMENTO CSV...',
     langBtn:     '&#127463;&#127479; EN',
     loadErr:     '> ERRORE: games.csv non trovato. Mettilo nella stessa cartella.',
+    privacy:     'Questo sito non utilizza cookie, non raccoglie dati personali e non effettua chiamate a servizi esterni. Font e audio sono self-hosted. Hosting: Netlify (privacy policy: <a href="https://www.netlify.com/privacy/" target="_blank" rel="noopener">netlify.com/privacy</a>).',
   },
   en: {
     csv:         'games_eng.csv',
@@ -287,6 +302,7 @@ const I18N = {
     loading:     'LOADING CSV...',
     langBtn:     '&#127470;&#127481; IT',
     loadErr:     '> ERROR: games_eng.csv not found. Place it in the same folder.',
+    privacy:     'This site uses no cookies, collects no personal data, and makes no calls to external services. Fonts and audio are self-hosted. Hosting: Netlify (privacy policy: <a href="https://www.netlify.com/privacy/" target="_blank" rel="noopener">netlify.com/privacy</a>).',
   }
 };
 
@@ -336,6 +352,8 @@ function esc(s) {
 // ── APPLY I18N ────────────────────────────────────────────────────────────────
 function applyLang() {
   const t = I18N[lang];
+  const fp = document.getElementById('footer-privacy');
+  if (fp) fp.innerHTML = t.privacy;
   document.getElementById('lbl-filter').textContent    = t.filterLabel;
   document.getElementById('fb-all').textContent        = t.allBtn;
   document.getElementById('search').placeholder        = t.searchPh;
@@ -459,6 +477,7 @@ document.querySelectorAll('thead th[data-col]').forEach(th => {
 // ── LANGUAGE TOGGLE ───────────────────────────────────────────────────────────
 document.getElementById('langBtn').addEventListener('click', () => {
   lang = lang === 'it' ? 'en' : 'it';
+  document.documentElement.lang = lang;
   activeFilter = 'all';
   document.querySelectorAll('.fb').forEach(b => b.classList.toggle('active', b.dataset.f === 'all'));
   query = '';
