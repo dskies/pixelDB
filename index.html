@@ -305,7 +305,7 @@ const I18N = {
   }
 };
 
-let lang = 'it';
+let lang = localStorage.getItem('pixeldb-lang') || 'en';
 let allGames = [];
 let activeFilter = 'all';
 let query = '';
@@ -476,6 +476,7 @@ document.querySelectorAll('thead th[data-col]').forEach(th => {
 // ── LANGUAGE TOGGLE ───────────────────────────────────────────────────────────
 document.getElementById('langBtn').addEventListener('click', () => {
   lang = lang === 'it' ? 'en' : 'it';
+  localStorage.setItem('pixeldb-lang', lang);
   document.documentElement.lang = lang;
   activeFilter = 'all';
   document.querySelectorAll('.fb').forEach(b => b.classList.toggle('active', b.dataset.f === 'all'));
@@ -559,6 +560,7 @@ function goTop() { window.scrollTo({ top: 0, behavior: 'instant' }); }
   })();
 
 // ── INIT ──────────────────────────────────────────────────────────────────────
+document.documentElement.lang = lang;
 updateStickyOffsets();
 window.addEventListener('resize', updateStickyOffsets);
 applyLang();
