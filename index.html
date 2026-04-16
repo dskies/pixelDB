@@ -116,11 +116,10 @@
     box-shadow: var(--neon-glow);
     transition: all 0.12s;
     white-space: nowrap;
-    margin-left: 0.5rem;
   }
   button#langBtn:hover { background: rgba(0,255,136,0.18); }
 
-  .search-wrap { margin-left: auto; }
+  .search-wrap { margin-left: auto; display:flex; align-items:center; gap:0.5rem; }
   #search {
     font-family: 'Share Tech Mono', monospace; font-size: 0.7rem;
     background: var(--bg); border: 1px solid var(--dim);
@@ -241,9 +240,9 @@
   <button class="fb" data-f="horror">Horror</button>
   <button class="fb" data-f="rpg">RPG</button>
   <button class="fb" data-f="classic">Classic</button>
-  <button id="langBtn">&#127463;&#127479; EN</button>
   <div class="search-wrap">
     <input type="text" id="search" placeholder="CERCA TITOLO...">
+    <button id="langBtn">&#127463;&#127479; EN</button>
   </div>
 </div>
 
