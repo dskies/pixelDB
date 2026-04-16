@@ -66,7 +66,7 @@
     inset: 0;
     width: 100%;
     height: 100%;
-    opacity: 0.30;
+    opacity: 0.60;
     image-rendering: pixelated;
     pointer-events: none;
   }
@@ -130,6 +130,20 @@
     white-space: nowrap;
   }
   button#langBtn:hover { background: rgba(0,255,136,0.18); }
+
+  /* Sun theme toggle */
+  button#themeBtn {
+    font-family: 'Press Start 2P', monospace;
+    font-size: 0.7rem; padding: 0.30rem 0.55rem;
+    background: rgba(0,0,0,0.30);
+    border: 1px solid var(--accent);
+    color: var(--accent); cursor: pointer;
+    box-shadow: var(--neon-glow);
+    transition: all 0.12s;
+    white-space: nowrap;
+    line-height: 1;
+  }
+  button#themeBtn:hover { background: rgba(255,255,255,0.08); }
 
   .search-wrap { margin-left: auto; display:flex; align-items:center; gap:0.5rem; }
   #search {
@@ -258,6 +272,7 @@
   <div class="search-wrap">
     <input type="text" id="search" placeholder="CERCA TITOLO...">
     <button id="langBtn">&#127463;&#127479; EN</button>
+    <button id="themeBtn" title="Cambia tema colore">&#9728;</button>
   </div>
 </div>
 
@@ -529,6 +544,25 @@ document.querySelectorAll('thead th[data-col]').forEach(th => {
   });
 });
 
+// ── THEME (accent colour) CYCLE ─────────────────────────────────────────────
+(function() {
+  const THEMES = [
+    { accent: '#00ff88', glow: '0 0 8px #00ff8844, 0 0 20px #00ff8822' },  // green
+    { accent: '#ff6b35', glow: '0 0 8px #ff6b3544, 0 0 20px #ff6b3522' },  // orange
+    { accent: '#e8e8e8', glow: '0 0 8px #e8e8e844, 0 0 20px #e8e8e822' },  // white
+  ];
+  let idx = 0;
+  function applyTheme(t) {
+    const r = document.documentElement.style;
+    r.setProperty('--accent',    t.accent);
+    r.setProperty('--neon-glow', t.glow);
+  }
+  document.getElementById('themeBtn').addEventListener('click', () => {
+    idx = (idx + 1) % THEMES.length;
+    applyTheme(THEMES[idx]);
+  });
+})();
+
 // ── LANGUAGE TOGGLE ───────────────────────────────────────────────────────────
 document.getElementById('langBtn').addEventListener('click', () => {
   lang = lang === 'it' ? 'en' : 'it';
@@ -615,106 +649,131 @@ function goTop() { window.scrollTo({ top: 0, behavior: 'instant' }); }
     ['click','keydown','touchstart'].forEach(ev => document.addEventListener(ev, onFirstGesture, { once: true }));
   })();
 
-// ── GAME OF LIFE (header background) ─────────────────────────────────────────
+// ── PIXEL-ART SUNSET (header background) ─────────────────────────────────────
 (function() {
   const canvas = document.getElementById('gol-canvas');
   if (!canvas) return;
   const ctx = canvas.getContext('2d');
+  const PX = 4; // pixel art grid size
 
-  // Pixel art palette (alive cells cycle through these colors by age)
-  const PALETTE = [
-    '#00ff88', // neon green
-    '#00cfff', // cyan
-    '#ffaa55', // orange
-    '#ff6b35', // red-orange
-    '#bb99ff', // purple
-    '#ffdd77', // yellow
-    '#77ddaa', // mint
-    '#ff88aa', // pink
+  // Sky colour bands, top → bottom
+  const SKY = [
+    '#120820','#1a0c2e','#1e1040','#2a1450',
+    '#3d1460','#5c2070','#7a2a70','#9a3268',
+    '#b83c58','#cc4a40','#d96030','#e47228',
+    '#ed8824','#f59c28','#f8b030','#fac040',
+    '#fcd060','#fee080','#fff0a0'
   ];
-  const CELL = 6; // px per cell
-  let cols, rows, grid, next, age;
+
+  function fill(px2, py, col) {
+    ctx.fillStyle = col;
+    ctx.fillRect(px2 * PX, py * PX, PX, PX);
+  }
+
+  function drawSunset() {
+    const W = canvas.width, H = canvas.height;
+    const pw = Math.ceil(W / PX);
+    const ph = Math.ceil(H / PX);
+
+    // ── sky bands ──
+    for (let py = 0; py < ph; py++) {
+      const bi = Math.min(SKY.length - 1, Math.floor((py / ph) * SKY.length));
+      ctx.fillStyle = SKY[bi];
+      ctx.fillRect(0, py * PX, W, PX);
+    }
+
+    // ── sun ──
+    const sx = Math.floor(pw / 2);
+    const sy = Math.floor(ph * 0.70);
+    const sr = Math.max(3, Math.floor(ph * 0.20));
+    for (let dy = -sr; dy <= sr; dy++) {
+      for (let dx = -sr; dx <= sr; dx++) {
+        const d2 = dx * dx + dy * dy;
+        if (d2 <= sr * sr) {
+          const d = Math.sqrt(d2) / sr;
+          const col = d < 0.25 ? '#fffff0'
+                    : d < 0.55 ? '#fff5aa'
+                    : d < 0.78 ? '#ffe066'
+                    :            '#ffbb22';
+          fill(sx + dx, sy + dy, col);
+        }
+      }
+    }
+
+    // ── sun shimmer (vertical column, bottom half of sun downward) ──
+    for (let dy = 1; dy <= Math.floor(ph * 0.12); dy++) {
+      const hw = Math.max(1, Math.floor((1 - dy / (ph * 0.13)) * 2));
+      for (let dx = -hw; dx <= hw; dx++) {
+        const col = dy % 2 === 0 ? '#ffd044' : '#ffbb22';
+        if (sy + sr + dy < ph) fill(sx + dx, sy + sr + dy, col);
+      }
+    }
+
+    // ── clouds ──
+    const clouds = [
+      { x: Math.floor(pw * 0.15), y: Math.floor(ph * 0.22), tiles: [[0,0],[1,0],[2,0],[3,0],[1,-1],[2,-1]] , col:'#d86888' },
+      { x: Math.floor(pw * 0.58), y: Math.floor(ph * 0.16), tiles: [[0,0],[1,0],[2,0],[3,0],[4,0],[1,-1],[2,-1],[3,-1]] , col:'#c05850' },
+      { x: Math.floor(pw * 0.80), y: Math.floor(ph * 0.26), tiles: [[0,0],[1,0],[2,0],[1,-1]] , col:'#b84460' },
+    ];
+    for (const cl of clouds) {
+      for (const [tx, ty] of cl.tiles) fill(cl.x + tx, cl.y + ty, cl.col);
+    }
+
+    // ── stars (deterministic) ──
+    const starZone = Math.floor(ph * 0.42);
+    for (let i = 0; i < 28; i++) {
+      const spx = (i * 137 + 29) % pw;
+      const spy = (i * 71  + 13) % starZone;
+      // only in the dark upper sky (skip the orange lower bands)
+      const bi  = Math.min(SKY.length - 1, Math.floor((spy / ph) * SKY.length));
+      if (bi < 8) fill(spx, spy, i % 4 === 0 ? '#ffffff' : '#ffeecc');
+    }
+
+    // ── ground silhouette ──
+    const groundTop = Math.floor(ph * 0.80);
+    for (let px2 = 0; px2 < pw; px2++) {
+      // gentle undulating hills
+      const bump = Math.round(
+        3 * Math.sin(px2 * 0.09) +
+        2 * Math.sin(px2 * 0.19 + 0.8) +
+        1.5 * Math.sin(px2 * 0.05 + 1.6)
+      );
+      const top = groundTop - bump;
+      for (let py = top; py < ph; py++) {
+        const col = py === top ? '#2a1840' : (py < top + 2 ? '#1e1030' : '#130a20');
+        fill(px2, py, col);
+      }
+    }
+
+    // ── pine-tree silhouettes ──
+    const treeH = Math.max(5, Math.floor(ph * 0.30));
+    const trees = [
+      Math.floor(pw * 0.08), Math.floor(pw * 0.14),
+      Math.floor(pw * 0.76), Math.floor(pw * 0.83), Math.floor(pw * 0.89),
+    ];
+    for (let ti = 0; ti < trees.length; ti++) {
+      const tx = trees[ti];
+      const th = treeH - (ti % 2) * 2;
+      const baseY = groundTop - Math.round(
+        3 * Math.sin(tx * 0.09) + 2 * Math.sin(tx * 0.19 + 0.8)
+      ) - 1;
+      for (let lv = 0; lv < th; lv++) {
+        const hw = Math.max(0, Math.floor(((lv / th) * 2.8)));
+        const py = baseY - lv;
+        for (let dx = -hw; dx <= hw; dx++) fill(tx + dx, py, '#0e0820');
+      }
+      fill(tx, baseY + 1, '#0e0820');
+    }
+  }
 
   function resize() {
-    const W = canvas.offsetWidth;
-    const H = canvas.offsetHeight;
-    canvas.width  = W;
-    canvas.height = H;
-    cols = Math.ceil(W / CELL);
-    rows = Math.ceil(H / CELL);
-    grid = new Uint8Array(cols * rows);
-    next = new Uint8Array(cols * rows);
-    age  = new Uint8Array(cols * rows);
-    // seed ~30% alive
-    for (let i = 0; i < grid.length; i++) {
-      grid[i] = Math.random() < 0.30 ? 1 : 0;
-      age[i]  = grid[i] ? Math.floor(Math.random() * PALETTE.length) : 0;
-    }
+    canvas.width  = canvas.offsetWidth;
+    canvas.height = canvas.offsetHeight;
+    drawSunset();
   }
-
-  function idx(x, y) { return ((y + rows) % rows) * cols + ((x + cols) % cols); }
-
-  function step() {
-    for (let y = 0; y < rows; y++) {
-      for (let x = 0; x < cols; x++) {
-        const i = idx(x, y);
-        const n = grid[idx(x-1,y-1)] + grid[idx(x,y-1)] + grid[idx(x+1,y-1)]
-                + grid[idx(x-1,y)]                       + grid[idx(x+1,y)]
-                + grid[idx(x-1,y+1)] + grid[idx(x,y+1)] + grid[idx(x+1,y+1)];
-        const alive = grid[i];
-        if (alive) {
-          next[i] = (n === 2 || n === 3) ? 1 : 0;
-        } else {
-          next[i] = (n === 3) ? 1 : 0;
-        }
-        // advance age for alive cells, reset for dead
-        if (next[i]) {
-          age[i] = alive ? Math.min(age[i] + 1, 255)
-                         : Math.floor(Math.random() * PALETTE.length) * 12;
-        } else {
-          age[i] = 0;
-        }
-      }
-    }
-    const tmp = grid; grid = next; next = tmp;
-  }
-
-  function draw() {
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-    for (let y = 0; y < rows; y++) {
-      for (let x = 0; x < cols; x++) {
-        const i = idx(x, y);
-        if (grid[i]) {
-          const colorIdx = Math.floor(age[i] / 12) % PALETTE.length;
-          ctx.fillStyle = PALETTE[colorIdx];
-          ctx.fillRect(x * CELL, y * CELL, CELL - 1, CELL - 1);
-        }
-      }
-    }
-  }
-
-  let lastTime = 0;
-  const FPS = 10;
-  const INTERVAL = 1000 / FPS;
-
-  function loop(ts) {
-    requestAnimationFrame(loop);
-    if (ts - lastTime < INTERVAL) return;
-    lastTime = ts;
-    step();
-    draw();
-  }
-
-  // Re-seed every ~40s so it never goes stale
-  setInterval(() => {
-    for (let i = 0; i < grid.length; i++) {
-      if (Math.random() < 0.02) { grid[i] = 1; age[i] = 0; }
-    }
-  }, 40000);
 
   window.addEventListener('resize', resize);
-  resize();
-  requestAnimationFrame(loop);
+  requestAnimationFrame(resize);
 })();
 
 // ── INIT ──────────────────────────────────────────────────────────────────────
