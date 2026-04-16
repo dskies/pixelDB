@@ -242,6 +242,20 @@
   }
   footer a { color: var(--muted); text-decoration: underline; }
   footer a:hover { color: var(--accent); }
+
+  /* ── SCORE BADGES ── */
+  td.sc { width: 52px; text-align: center; white-space: nowrap; }
+  .sc-badge {
+    font-family: 'Press Start 2P', monospace;
+    font-size: 0.40rem; padding: 0.16rem 0.32rem;
+    border: 1px solid; display: inline-block;
+    min-width: 3em; text-align: center; letter-spacing: 0;
+  }
+  .sc-spin { font-size: 0.55rem; color: var(--muted); animation: blink 1s step-end infinite; }
+  .sc-na   { color: var(--muted); font-size: 0.65rem; }
+  .sc-good { color: #77ff99; border-color: #77ff9940; background: rgba(119,255,153,0.07); }
+  .sc-mid  { color: #ffdd77; border-color: #ffdd7740; background: rgba(255,221,119,0.07); }
+  .sc-bad  { color: #ff7777; border-color: #ff777740; background: rgba(255,119,119,0.07); }
 </style>
 </head>
 <body>
@@ -293,6 +307,8 @@
         <th id="th-pub">Publisher</th>
         <th id="th-country">Paese</th>
         <th id="th-notes">Note</th>
+        <th id="th-oc" title="OpenCritic critic score (0-100)">OC</th>
+        <th id="th-steam" title="Steam reviews % positive">Steam</th>
       </tr>
     </thead>
     <tbody id="tbody"></tbody>
@@ -488,7 +504,8 @@ function render() {
     const countryH = (g.country || '').split(/\s+/).filter(Boolean)
       .map(f => `<span title="${countryName[f] || f}" style="cursor:default;font-size:1.2em">${f}</span>`)
       .join(' ');
-    return `<tr>
+    const titleAttr = esc(g.title).replace(/"/g,'&quot;');
+    return `<tr data-title="${titleAttr}">
       <td class="num">${g.num}</td>
       <td class="yr">${g.year}</td>
       <td class="ttl">${isStar ? '<span class="star">&#9733;</span>' : ''}${esc(g.title)}</td>
@@ -498,6 +515,8 @@ function render() {
       <td class="pub">${pubLink}</td>
       <td class="cnt">${countryH}</td>
       <td class="nte">${esc(g.note || '')}</td>
+      <td class="sc sc-oc-cell"><span class="sc-spin">···</span></td>
+      <td class="sc sc-st-cell"><span class="sc-spin">···</span></td>
     </tr>`;
   }).join('');
 
@@ -509,6 +528,7 @@ function render() {
   tbody.querySelectorAll('.tag[data-tag]').forEach(el => {
     el.addEventListener('click', e => { e.stopPropagation(); setFilter(el.dataset.tag); });
   });
+  populateScores();
 }
 
 // ── FILTER ────────────────────────────────────────────────────────────────────
@@ -776,6 +796,90 @@ function goTop() { window.scrollTo({ top: 0, behavior: 'instant' }); }
   window.addEventListener('resize', resize);
   requestAnimationFrame(resize);
 })();
+
+// ── SCORES (OpenCritic + Steam) ─────────────────────────────────────────────
+const SCORE_CACHE_KEY = 'pixeldb-scores-v1';
+const SCORE_TTL = 7 * 24 * 3600 * 1000;
+let scoreQueue = [];
+let scoreFetching = false;
+
+function scoreCache() {
+  try { return JSON.parse(localStorage.getItem(SCORE_CACHE_KEY) || '{}'); } catch { return {}; }
+}
+function scoreCacheSave(c) {
+  try { localStorage.setItem(SCORE_CACHE_KEY, JSON.stringify(c)); } catch {}
+}
+function scoreBadge(val, isPercent) {
+  const hi = isPercent ? 80 : 75, lo = isPercent ? 60 : 50;
+  const cls = val >= hi ? 'sc-good' : val >= lo ? 'sc-mid' : 'sc-bad';
+  return `<span class="sc-badge ${cls}">${val}${isPercent ? '%' : ''}</span>`;
+}
+function scoreRender(cell, val, isPercent) {
+  if (!cell?.isConnected) return;
+  cell.innerHTML = (val === null || val === undefined)
+    ? '<span class="sc-na">—</span>'
+    : scoreBadge(val, isPercent);
+}
+function populateScores() {
+  const cache = scoreCache();
+  const now = Date.now();
+  scoreQueue = [];
+  document.querySelectorAll('tr[data-title]').forEach(tr => {
+    const title  = tr.dataset.title;
+    const ocCell = tr.querySelector('.sc-oc-cell');
+    const stCell = tr.querySelector('.sc-st-cell');
+    const entry  = cache[title];
+    if (entry && (now - entry.ts) < SCORE_TTL) {
+      scoreRender(ocCell, entry.oc, false);
+      scoreRender(stCell, entry.st, true);
+    } else {
+      scoreQueue.push({ title, ocCell, stCell });
+    }
+  });
+  scoreDrain();
+}
+function scoreDrain() {
+  if (scoreFetching || scoreQueue.length === 0) return;
+  scoreFetching = true;
+  const item = scoreQueue.shift();
+  scoreFetchOne(item).finally(() => {
+    scoreFetching = false;
+    setTimeout(scoreDrain, 350);
+  });
+}
+async function scoreFetchOne({ title, ocCell, stCell }) {
+  const cache = scoreCache();
+  const entry = { ts: Date.now(), oc: null, st: null };
+  // OpenCritic (public API, CORS enabled)
+  try {
+    const r1  = await fetch(`https://api.opencritic.com/api/game/search?criteria=${encodeURIComponent(title)}`);
+    const lst = await r1.json();
+    if (Array.isArray(lst) && lst.length > 0) {
+      const r2 = await fetch(`https://api.opencritic.com/api/game/${lst[0].id}`);
+      const gd = await r2.json();
+      if (typeof gd.topCriticScore === 'number' && gd.topCriticScore >= 0) {
+        entry.oc = Math.round(gd.topCriticScore);
+      }
+    }
+  } catch {}
+  // Steam store search + review summary
+  try {
+    const sr  = await fetch(`https://store.steampowered.com/api/storesearch/?term=${encodeURIComponent(title)}&l=english&cc=US`);
+    const sd  = await sr.json();
+    const app = sd.items?.find(x => x.name.toLowerCase() === title.toLowerCase()) || sd.items?.[0];
+    if (app?.id) {
+      const rv = await fetch(`https://store.steampowered.com/appreviews/${app.id}?json=1&language=all&num_per_page=0&purchase_type=all`);
+      const rd = await rv.json();
+      const total = rd.query_summary?.total_reviews ?? 0;
+      const pos   = rd.query_summary?.total_positive ?? 0;
+      if (total > 0) entry.st = Math.round((pos / total) * 100);
+    }
+  } catch {}
+  cache[title] = entry;
+  scoreCacheSave(cache);
+  scoreRender(ocCell, entry.oc, false);
+  scoreRender(stCell, entry.st, true);
+}
 
 // ── INIT ──────────────────────────────────────────────────────────────────────
 document.documentElement.lang = lang;
