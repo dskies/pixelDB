@@ -2,7 +2,7 @@
 
 > A curated, searchable database of pixel-art adventure and indie games — from 1984 classics to 2026 upcoming releases.
 
-**Live demo:** [https://dskies.github.io/pixelDB](https://dskies.github.io/pixelDB)  
+**Live demo:** [https://loquacious-salmiakki-57a0e3.netlify.app/](https://loquacious-salmiakki-57a0e3.netlify.app/)  
 **Repository:** [https://github.com/dskies/pixelDB](https://github.com/dskies/pixelDB)
 
 ---
