@@ -843,7 +843,8 @@ function scoreDrain() {
   const item = scoreQueue.shift();
   scoreFetchOne(item).finally(() => {
     scoreFetching = false;
-    setTimeout(scoreDrain, 600);
+    // 2s between requests to stay well within Wikipedia rate limits
+    setTimeout(scoreDrain, 2000);
   });
 }
 async function scoreFetchOne({ title, mcCell }) {
@@ -854,6 +855,7 @@ async function scoreFetchOne({ title, mcCell }) {
     const searchUrl = `https://en.wikipedia.org/w/api.php?action=query&list=search` +
       `&srsearch=${encodeURIComponent(title + ' video game')}&srlimit=3&format=json&origin=*`;
     const sr = await fetch(searchUrl, { signal: AbortSignal.timeout(8000) });
+    if (sr.status === 429) throw new Error('rate-limited');
     const sd = await sr.json();
     const hit = sd.query?.search?.[0];
     if (!hit) throw new Error('no result');
@@ -862,6 +864,7 @@ async function scoreFetchOne({ title, mcCell }) {
     const wtUrl = `https://en.wikipedia.org/w/api.php?action=parse&page=` +
       `${encodeURIComponent(hit.title)}&prop=wikitext&format=json&origin=*`;
     const wr = await fetch(wtUrl, { signal: AbortSignal.timeout(8000) });
+    if (wr.status === 429) throw new Error('rate-limited');
     const wd = await wr.json();
     const wikitext = wd.parse?.wikitext?.['*'] || '';
 
