@@ -796,7 +796,7 @@ function goTop() { window.scrollTo({ top: 0, behavior: 'instant' }); }
 })();
 
 // ── SCORES (Metacritic via allorigins.win proxy) ────────────────────────────
-const SCORE_CACHE_KEY = 'pixeldb-scores-v2';
+const SCORE_CACHE_KEY = 'pixeldb-scores-v3';
 const SCORE_TTL = 7 * 24 * 3600 * 1000;
 let scoreQueue = [];
 let scoreFetching = false;
@@ -818,13 +818,8 @@ function scoreRender(cell, val) {
     : scoreBadge(val);
 }
 function mcSlug(title) {
-  return title
-    .toLowerCase()
-    .replace(/[''\u2018\u2019]/g, '')
-    .replace(/[^a-z0-9\s-]/g, ' ')
-    .trim()
-    .replace(/\s+/g, '-')
-    .replace(/-+/g, '-');
+  // Wikipedia page title: preserve capitalisation, replace spaces with underscores
+  return title.trim().replace(/\s+/g, '_');
 }
 function populateScores() {
   const cache = scoreCache();
@@ -855,20 +850,26 @@ async function scoreFetchOne({ title, mcCell }) {
   const cache = scoreCache();
   const entry = { ts: Date.now(), mc: null };
   try {
-    const slug = mcSlug(title);
-    const target = `https://www.metacritic.com/game/${slug}/`;
-    const proxy  = `https://api.allorigins.win/get?url=${encodeURIComponent(target)}`;
-    const r = await fetch(proxy, { signal: AbortSignal.timeout(10000) });
-    const data = await r.json();
-    const html = data.contents || '';
-    // JSON-LD ratingValue (most reliable)
-    const jld = html.match(/"ratingValue"\s*:\s*"?(\d+(?:\.\d+)?)/)
-    if (jld) {
-      entry.mc = Math.round(parseFloat(jld[1]));
-    } else {
-      // Metacritic new layout: c-siteReviewScore span
-      const m = html.match(/c-siteReviewScore[\s\S]{0,200}?<span[^>]*>(\d+)<\/span>/);
-      if (m) entry.mc = parseInt(m[1], 10);
+    // 1. Search Wikipedia for the game article
+    const searchUrl = `https://en.wikipedia.org/w/api.php?action=query&list=search` +
+      `&srsearch=${encodeURIComponent(title + ' video game')}&srlimit=3&format=json&origin=*`;
+    const sr = await fetch(searchUrl, { signal: AbortSignal.timeout(8000) });
+    const sd = await sr.json();
+    const hit = sd.query?.search?.[0];
+    if (!hit) throw new Error('no result');
+
+    // 2. Fetch wikitext of the article
+    const wtUrl = `https://en.wikipedia.org/w/api.php?action=parse&page=` +
+      `${encodeURIComponent(hit.title)}&prop=wikitext&format=json&origin=*`;
+    const wr = await fetch(wtUrl, { signal: AbortSignal.timeout(8000) });
+    const wd = await wr.json();
+    const wikitext = wd.parse?.wikitext?.['*'] || '';
+
+    // 3. Parse MC score from infobox: | MC = 85/100  or  | MC = 85
+    const m = wikitext.match(/\|\s*MC\s*=\s*(\d+)/);
+    if (m) {
+      const v = parseInt(m[1], 10);
+      if (v >= 1 && v <= 100) entry.mc = v;
     }
   } catch {}
   cache[title] = entry;
