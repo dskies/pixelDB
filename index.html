@@ -551,12 +551,13 @@ document.querySelectorAll('thead th[data-col]').forEach(th => {
     { accent: '#ff6b35', glow: '0 0 8px #ff6b3544, 0 0 20px #ff6b3522' },  // orange
     { accent: '#e8e8e8', glow: '0 0 8px #e8e8e844, 0 0 20px #e8e8e822' },  // white
   ];
-  let idx = 0;
+  let idx = 2; // default: white
   function applyTheme(t) {
     const r = document.documentElement.style;
     r.setProperty('--accent',    t.accent);
     r.setProperty('--neon-glow', t.glow);
   }
+  applyTheme(THEMES[idx]);
   document.getElementById('themeBtn').addEventListener('click', () => {
     idx = (idx + 1) % THEMES.length;
     applyTheme(THEMES[idx]);
